@@ -11,8 +11,14 @@ namespace CoffeeManagement.DAO
         public DbSet<User> Users { get; set; }
         public CoffeeDbContext() : base(_dbName)
         {
-            Database.SetInitializer(new DbInitializer());            
-            Database.Initialize(false);
+        // switch on these lines to drop and create new database when model changes.
+        //    Database.SetInitializer(new DbInitializer());            
+        //    Database.Initialize(false);
+
+            if (Database.CreateIfNotExists())
+            {
+                InitDatabase();
+            }
         }
         
         public class DbInitializer : DropCreateDatabaseIfModelChanges<CoffeeDbContext>

@@ -23,6 +23,7 @@ namespace CoffeeManagement
 
         private void Splash_Load(object sender, EventArgs e)
         {
+            SetStatus("Đang tải...");
             _backgroundWorker.DoWork += DoLoading;
             _backgroundWorker.RunWorkerCompleted += OnWorkCompleted;
 
@@ -31,16 +32,28 @@ namespace CoffeeManagement
 
         private void OnWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            SetStatus("Xong.");
             Login loginForm = new Login(this);
-            loginForm.Show();
+            loginForm.Show();            
         }
 
         private void DoLoading(object sender, DoWorkEventArgs e)
         {
             CoffeeDbContext dbContext = new CoffeeDbContext();
-            
+
         }
 
+        private void SetStatus(string status)
+        {
+            _lbStatus.Text = status;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _backgroundWorker.WorkerSupportsCancellation = true;
+            _backgroundWorker.CancelAsync();
+            Application.Exit();
+        }
       
     }
 }
