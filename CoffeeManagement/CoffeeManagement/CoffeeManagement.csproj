@@ -80,6 +80,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Search.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinformControls\HintTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MasterView.resx">
       <DependentUpon>MasterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
