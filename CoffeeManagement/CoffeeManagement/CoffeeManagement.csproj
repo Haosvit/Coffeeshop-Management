@@ -68,12 +68,6 @@
       <DependentUpon>ExUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailViews\IDetailView.cs" />
-    <Compile Include="Views\DetailViews\UserManagement.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\DetailViews\UserManagement.Designer.cs">
-      <DependentUpon>UserManagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +79,30 @@
     </Compile>
     <Compile Include="Views\MasterView.Designer.cs">
       <DependentUpon>MasterView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\EndShiftStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\EndShiftStatistics.Designer.cs">
+      <DependentUpon>EndShiftStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\Indicator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\Indicator.Designer.cs">
+      <DependentUpon>Indicator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\UserManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Splash.cs">
       <SubType>Form</SubType>
@@ -113,14 +131,23 @@
     <EmbeddedResource Include="Views\DetailViews\ExUC.resx">
       <DependentUpon>ExUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\DetailViews\UserManagement.resx">
-      <DependentUpon>UserManagement.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MasterView.resx">
       <DependentUpon>MasterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\EndShiftStatistics.resx">
+      <DependentUpon>EndShiftStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\Indicator.resx">
+      <DependentUpon>Indicator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\UserManagement.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
@@ -183,6 +210,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\valid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invalid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end_shift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log_out.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

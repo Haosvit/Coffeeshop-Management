@@ -2,6 +2,7 @@
 using CoffeeManagement.Models;
 using CoffeeManagement.Utilities;
 using CoffeeManagement.Views.DetailViews;
+using CoffeeManagement.Views.Popups;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -78,6 +79,8 @@ namespace CoffeeManagement.Views
             _selectedMenuItem = (sender as Button);
             _selectedMenuItem.BackColor = _activeColor;
 
+            ToggleMenuLayout();
+
             switch (_selectedMenuItem.Name)
             {
                 case "_menuSale":
@@ -91,13 +94,12 @@ namespace CoffeeManagement.Views
                     LogOut();
                     break;
                 case "_menuUserManagement":
-                    
+                    ShowPopup(new UserManagement());
                     break;
                 default:
                     break;
             }
 
-            ToggleMenuLayout();
         }
 
         private void ShowDetailView(UserControl view)
@@ -112,6 +114,16 @@ namespace CoffeeManagement.Views
                     _lbScreenName.Text = (view as IDetailView).ScreenName.ToUpper();
                 }
             }                        
+        }
+
+        private void ShowPopup(Form popup)
+        {
+            if (_menuLayout.Visible)
+            {
+                ToggleMenuLayout();
+            }
+
+            popup.ShowDialog();
         }
 
         /// <summary>
@@ -152,6 +164,7 @@ namespace CoffeeManagement.Views
                     _menuWorkTracking.Visible = true;
                     _menuMaterialStatistics.Visible = true;
                     _menuMaterialState.Visible = true;
+                    _menuUserManagement.Visible = true;
                     break;
                 case AppEnum.UserLevel.Baristar:
                     _menuMaterialState.Visible = true;

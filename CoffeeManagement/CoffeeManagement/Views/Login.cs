@@ -1,5 +1,6 @@
 ﻿using CoffeeManagement.BO;
 using CoffeeManagement.Utilities;
+using CoffeeManagement.Views.Popups;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,45 @@ namespace CoffeeManagement.Views
 {
     public partial class Login : Form
     {
-        public Login(Form splashScreen)
+        private bool _isAuthorized;
+        private Indicator _indicator = new Indicator();
+        public Login()
         {
             InitializeComponent();
-            splashScreen.Hide();
+
+            _backgroundWorker.DoWork += DoLogin;
+            _backgroundWorker.RunWorkerCompleted += OnLoginCompleled;
+        }
+
+        private void OnLoginCompleled(object sender, RunWorkerCompletedEventArgs e)
+        {
+            _indicator.Close();
+            if (_isAuthorized)
+            {
+                MasterView masterView = new MasterView(this);
+                masterView.Show();
+            }
+        }
+
+        private void DoLogin(object sender, DoWorkEventArgs e)
+        {
+            if (IsInputValid())
+            {
+                var userBo = new UserBo();
+
+                if (userBo.CheckLogin(_tbUsername.Text, _tbPassword.Text))
+                {
+                    _isAuthorized = true;
+                }
+                else
+                {
+                    MessageHelper.CreateErrorMessage("Thông tin đăng nhập không đúng!");
+                }
+            }
+            else
+            {
+                MessageHelper.CreateErrorMessage("Bạn phải điền đủ thông tin!");
+            }
         }
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
@@ -32,24 +68,8 @@ namespace CoffeeManagement.Views
 
         private void _btnLogin_Click(object sender, EventArgs e)
         {
-            if (IsInputValid())
-            {
-                var userBo = new UserBo();
-                
-                if (userBo.CheckLogin(_tbUsername.Text, _tbPassword.Text))
-                {
-                    MasterView masterView = new MasterView(this);
-                    masterView.Show();
-                }
-                else
-                {
-                    MessageHelper.CreateErrorMessage("Thông tin đăng nhập không đúng!");
-                }
-            }
-            else
-            {
-                MessageHelper.CreateErrorMessage("Bạn phải điền đủ thông tin!");
-            }
+            _backgroundWorker.RunWorkerAsync();
+            _indicator.ShowDialog();
         }
 
         private bool IsInputValid()
@@ -75,5 +95,14 @@ namespace CoffeeManagement.Views
         {
             _lbAppName.Text = AppConstants.AppName.ToUpper();
         }
+
+        private void _btnLogin_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible = true)
+            {
+                _isAuthorized = false;
+            }
+        }
+
     }
 }

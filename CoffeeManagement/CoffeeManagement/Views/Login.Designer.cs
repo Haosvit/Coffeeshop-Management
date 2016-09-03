@@ -28,46 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._btnExit = new System.Windows.Forms.Button();
-            this._btnLogin = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this._tbUsername = new System.Windows.Forms.TextBox();
             this._tbPassword = new System.Windows.Forms.TextBox();
             this._lbAppName = new System.Windows.Forms.Label();
+            this._btnLogin = new System.Windows.Forms.Button();
+            this._btnExit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this._backgroundWorker = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // _btnExit
-            // 
-            this._btnExit.Location = new System.Drawing.Point(328, 162);
-            this._btnExit.Name = "_btnExit";
-            this._btnExit.Size = new System.Drawing.Size(75, 23);
-            this._btnExit.TabIndex = 3;
-            this._btnExit.Text = "Thoát";
-            this._btnExit.UseVisualStyleBackColor = true;
-            this._btnExit.Click += new System.EventHandler(this._btnExit_Click);
-            // 
-            // _btnLogin
-            // 
-            this._btnLogin.Location = new System.Drawing.Point(247, 162);
-            this._btnLogin.Name = "_btnLogin";
-            this._btnLogin.Size = new System.Drawing.Size(75, 23);
-            this._btnLogin.TabIndex = 2;
-            this._btnLogin.Text = "Đăng nhập";
-            this._btnLogin.UseVisualStyleBackColor = true;
-            this._btnLogin.Click += new System.EventHandler(this._btnLogin_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CoffeeManagement.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 66);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -115,11 +86,52 @@
             this._lbAppName.Text = "CFM - QUẢN LÝ QUÁN CÀ PHÊ";
             this._lbAppName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // _btnLogin
+            // 
+            this._btnLogin.FlatAppearance.BorderSize = 0;
+            this._btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+            this._btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnLogin.Image = global::CoffeeManagement.Properties.Resources.login;
+            this._btnLogin.Location = new System.Drawing.Point(222, 161);
+            this._btnLogin.Name = "_btnLogin";
+            this._btnLogin.Size = new System.Drawing.Size(97, 40);
+            this._btnLogin.TabIndex = 2;
+            this._btnLogin.Text = "Đăng nhập";
+            this._btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this._btnLogin.UseVisualStyleBackColor = true;
+            this._btnLogin.VisibleChanged += new System.EventHandler(this._btnLogin_VisibleChanged);
+            this._btnLogin.Click += new System.EventHandler(this._btnLogin_Click);
+            // 
+            // _btnExit
+            // 
+            this._btnExit.FlatAppearance.BorderSize = 0;
+            this._btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+            this._btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnExit.Image = global::CoffeeManagement.Properties.Resources.exit;
+            this._btnExit.Location = new System.Drawing.Point(325, 161);
+            this._btnExit.Name = "_btnExit";
+            this._btnExit.Size = new System.Drawing.Size(78, 40);
+            this._btnExit.TabIndex = 3;
+            this._btnExit.Text = "Thoát";
+            this._btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this._btnExit.UseVisualStyleBackColor = true;
+            this._btnExit.Click += new System.EventHandler(this._btnExit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CoffeeManagement.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 66);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(107, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 229);
+            this.ClientSize = new System.Drawing.Size(438, 234);
             this.Controls.Add(this._lbAppName);
             this.Controls.Add(this._tbPassword);
             this.Controls.Add(this._tbUsername);
@@ -153,5 +165,6 @@
         private System.Windows.Forms.TextBox _tbUsername;
         private System.Windows.Forms.TextBox _tbPassword;
         private System.Windows.Forms.Label _lbAppName;
+        private System.ComponentModel.BackgroundWorker _backgroundWorker;
     }
 }
