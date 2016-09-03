@@ -33,8 +33,9 @@ namespace CoffeeManagement
         private void OnWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             SetStatus("Xong.");
-            Login loginForm = new Login(this);
-            loginForm.Show();            
+            Login loginForm = new Login();
+            Hide();
+            loginForm.Show();
         }
 
         private void DoLoading(object sender, DoWorkEventArgs e)
