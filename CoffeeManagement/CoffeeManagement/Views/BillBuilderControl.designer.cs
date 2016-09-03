@@ -30,16 +30,10 @@
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.middleButtonPanel = new System.Windows.Forms.Panel();
-            this.payBillBtn = new System.Windows.Forms.Button();
-            this.viewStatBtn = new System.Windows.Forms.Button();
-            this.printProfuctionBtn = new System.Windows.Forms.Button();
-            this.groupPercentBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.quantityComboBox = new System.Windows.Forms.ComboBox();
             this.quantityLabel = new System.Windows.Forms.Label();
-            this.mergeTable = new System.Windows.Forms.Button();
-            this.changeTableBtn = new System.Windows.Forms.Button();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.leftLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.informationPanel = new System.Windows.Forms.Panel();
@@ -87,6 +81,12 @@
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.discountPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payBillBtn = new System.Windows.Forms.Button();
+            this.viewStatBtn = new System.Windows.Forms.Button();
+            this.printProfuctionBtn = new System.Windows.Forms.Button();
+            this.groupPercentBtn = new System.Windows.Forms.Button();
+            this.mergeTable = new System.Windows.Forms.Button();
+            this.changeTableBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel.SuspendLayout();
             this.middleButtonPanel.SuspendLayout();
             this.leftPanel.SuspendLayout();
@@ -142,54 +142,6 @@
             this.middleButtonPanel.Size = new System.Drawing.Size(64, 544);
             this.middleButtonPanel.TabIndex = 0;
             // 
-            // payBillBtn
-            // 
-            this.payBillBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.payBillBtn.Image = global::CoffeeManagement.Properties.Resources.pay_bill_25px;
-            this.payBillBtn.Location = new System.Drawing.Point(0, 416);
-            this.payBillBtn.Name = "payBillBtn";
-            this.payBillBtn.Size = new System.Drawing.Size(64, 64);
-            this.payBillBtn.TabIndex = 9;
-            this.payBillBtn.Text = "Thanh Toán (F11)";
-            this.payBillBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.payBillBtn.UseVisualStyleBackColor = true;
-            // 
-            // viewStatBtn
-            // 
-            this.viewStatBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.viewStatBtn.Image = global::CoffeeManagement.Properties.Resources.stat_25px;
-            this.viewStatBtn.Location = new System.Drawing.Point(0, 480);
-            this.viewStatBtn.Name = "viewStatBtn";
-            this.viewStatBtn.Size = new System.Drawing.Size(64, 64);
-            this.viewStatBtn.TabIndex = 8;
-            this.viewStatBtn.Text = "Thống kê (F9)";
-            this.viewStatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.viewStatBtn.UseVisualStyleBackColor = true;
-            // 
-            // printProfuctionBtn
-            // 
-            this.printProfuctionBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.printProfuctionBtn.Image = global::CoffeeManagement.Properties.Resources.print_production_25px;
-            this.printProfuctionBtn.Location = new System.Drawing.Point(0, 297);
-            this.printProfuctionBtn.Name = "printProfuctionBtn";
-            this.printProfuctionBtn.Size = new System.Drawing.Size(64, 64);
-            this.printProfuctionBtn.TabIndex = 7;
-            this.printProfuctionBtn.Text = "In Chế Biến (F10)";
-            this.printProfuctionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.printProfuctionBtn.UseVisualStyleBackColor = true;
-            // 
-            // groupPercentBtn
-            // 
-            this.groupPercentBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupPercentBtn.Image = global::CoffeeManagement.Properties.Resources.group_25px;
-            this.groupPercentBtn.Location = new System.Drawing.Point(0, 233);
-            this.groupPercentBtn.Name = "groupPercentBtn";
-            this.groupPercentBtn.Size = new System.Drawing.Size(64, 64);
-            this.groupPercentBtn.TabIndex = 6;
-            this.groupPercentBtn.Text = "% Theo Nhóm";
-            this.groupPercentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.groupPercentBtn.UseVisualStyleBackColor = true;
-            // 
             // removeBtn
             // 
             this.removeBtn.Dock = System.Windows.Forms.DockStyle.Top;
@@ -242,31 +194,6 @@
             this.quantityLabel.Size = new System.Drawing.Size(49, 38);
             this.quantityLabel.TabIndex = 2;
             this.quantityLabel.Text = "Số lượng";
-            // 
-            // mergeTable
-            // 
-            this.mergeTable.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mergeTable.Image = global::CoffeeManagement.Properties.Resources.merge_table_25px;
-            this.mergeTable.Location = new System.Drawing.Point(0, 64);
-            this.mergeTable.Name = "mergeTable";
-            this.mergeTable.Size = new System.Drawing.Size(64, 64);
-            this.mergeTable.TabIndex = 1;
-            this.mergeTable.Text = "Ghép Bàn";
-            this.mergeTable.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.mergeTable.UseVisualStyleBackColor = true;
-            // 
-            // changeTableBtn
-            // 
-            this.changeTableBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.changeTableBtn.Image = global::CoffeeManagement.Properties.Resources.change_table_25px;
-            this.changeTableBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.changeTableBtn.Location = new System.Drawing.Point(0, 0);
-            this.changeTableBtn.Name = "changeTableBtn";
-            this.changeTableBtn.Size = new System.Drawing.Size(64, 64);
-            this.changeTableBtn.TabIndex = 0;
-            this.changeTableBtn.Text = "Đổi Bàn";
-            this.changeTableBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.changeTableBtn.UseVisualStyleBackColor = true;
             // 
             // leftPanel
             // 
@@ -794,6 +721,79 @@
             this.amount.HeaderText = "Thành Tiền";
             this.amount.Name = "amount";
             this.amount.ReadOnly = true;
+            // 
+            // payBillBtn
+            // 
+            this.payBillBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.payBillBtn.Image = global::CoffeeManagement.Properties.Resources.pay_bill_25px;
+            this.payBillBtn.Location = new System.Drawing.Point(0, 416);
+            this.payBillBtn.Name = "payBillBtn";
+            this.payBillBtn.Size = new System.Drawing.Size(64, 64);
+            this.payBillBtn.TabIndex = 9;
+            this.payBillBtn.Text = "Th.Toán (F11)";
+            this.payBillBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.payBillBtn.UseVisualStyleBackColor = true;
+            // 
+            // viewStatBtn
+            // 
+            this.viewStatBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.viewStatBtn.Image = global::CoffeeManagement.Properties.Resources.stat_25px;
+            this.viewStatBtn.Location = new System.Drawing.Point(0, 480);
+            this.viewStatBtn.Name = "viewStatBtn";
+            this.viewStatBtn.Size = new System.Drawing.Size(64, 64);
+            this.viewStatBtn.TabIndex = 8;
+            this.viewStatBtn.Text = "Thống kê (F9)";
+            this.viewStatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.viewStatBtn.UseVisualStyleBackColor = true;
+            // 
+            // printProfuctionBtn
+            // 
+            this.printProfuctionBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.printProfuctionBtn.Image = global::CoffeeManagement.Properties.Resources.print_production_25px;
+            this.printProfuctionBtn.Location = new System.Drawing.Point(0, 297);
+            this.printProfuctionBtn.Name = "printProfuctionBtn";
+            this.printProfuctionBtn.Size = new System.Drawing.Size(64, 64);
+            this.printProfuctionBtn.TabIndex = 7;
+            this.printProfuctionBtn.Text = "In Chế Biến (F10)";
+            this.printProfuctionBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.printProfuctionBtn.UseVisualStyleBackColor = true;
+            // 
+            // groupPercentBtn
+            // 
+            this.groupPercentBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupPercentBtn.Image = global::CoffeeManagement.Properties.Resources.group_25px;
+            this.groupPercentBtn.Location = new System.Drawing.Point(0, 233);
+            this.groupPercentBtn.Name = "groupPercentBtn";
+            this.groupPercentBtn.Size = new System.Drawing.Size(64, 64);
+            this.groupPercentBtn.TabIndex = 6;
+            this.groupPercentBtn.Text = "% Theo Nhóm";
+            this.groupPercentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.groupPercentBtn.UseVisualStyleBackColor = true;
+            // 
+            // mergeTable
+            // 
+            this.mergeTable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mergeTable.Image = global::CoffeeManagement.Properties.Resources.merge_table_25px;
+            this.mergeTable.Location = new System.Drawing.Point(0, 64);
+            this.mergeTable.Name = "mergeTable";
+            this.mergeTable.Size = new System.Drawing.Size(64, 64);
+            this.mergeTable.TabIndex = 1;
+            this.mergeTable.Text = "Ghép Bàn";
+            this.mergeTable.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.mergeTable.UseVisualStyleBackColor = true;
+            // 
+            // changeTableBtn
+            // 
+            this.changeTableBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.changeTableBtn.Image = global::CoffeeManagement.Properties.Resources.change_table_25px;
+            this.changeTableBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.changeTableBtn.Location = new System.Drawing.Point(0, 0);
+            this.changeTableBtn.Name = "changeTableBtn";
+            this.changeTableBtn.Size = new System.Drawing.Size(64, 64);
+            this.changeTableBtn.TabIndex = 0;
+            this.changeTableBtn.Text = "Đổi Bàn";
+            this.changeTableBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.changeTableBtn.UseVisualStyleBackColor = true;
             // 
             // BillBuilderControl
             // 
