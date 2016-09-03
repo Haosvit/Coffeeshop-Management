@@ -31,5 +31,11 @@ namespace CoffeeManagement.Views
         {
 
         }
+
+        private void payBillBtn_Click(object sender, EventArgs e)
+        {
+            var payingBillConfirmationForm = new PayingBillConfirmationForm();
+            payingBillConfirmationForm.Show();
+        }
     }
 }

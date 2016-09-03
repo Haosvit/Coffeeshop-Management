@@ -63,6 +63,16 @@ namespace CoffeeManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancel_25px {
+            get {
+                object obj = ResourceManager.GetObject("cancel_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap change_table_25px {
             get {
                 object obj = ResourceManager.GetObject("change_table_25px", resourceCulture);
@@ -106,6 +116,16 @@ namespace CoffeeManagement.Properties {
         internal static System.Drawing.Bitmap pay_bill_25px {
             get {
                 object obj = ResourceManager.GetObject("pay_bill_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap print_25px {
+            get {
+                object obj = ResourceManager.GetObject("print_25px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

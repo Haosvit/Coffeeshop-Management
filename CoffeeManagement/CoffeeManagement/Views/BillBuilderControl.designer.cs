@@ -733,6 +733,7 @@
             this.payBillBtn.Text = "Th.Toán (F11)";
             this.payBillBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.payBillBtn.UseVisualStyleBackColor = true;
+            this.payBillBtn.Click += new System.EventHandler(this.payBillBtn_Click);
             // 
             // viewStatBtn
             // 
