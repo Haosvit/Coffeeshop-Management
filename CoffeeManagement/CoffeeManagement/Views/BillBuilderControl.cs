@@ -21,5 +21,15 @@ namespace CoffeeManagement.Views
         {
 
         }
+
+        private void stopTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
