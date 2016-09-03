@@ -57,9 +57,23 @@
     <Compile Include="DAO\DataContext.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Utilities\AnimationHelper.cs" />
     <Compile Include="Utilities\AppConstants.cs" />
     <Compile Include="Utilities\AppEnum.cs" />
     <Compile Include="Utilities\MessageHelper.cs" />
+    <Compile Include="Views\DetailViews\ExUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\ExUC.Designer.cs">
+      <DependentUpon>ExUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\IDetailView.cs" />
+    <Compile Include="Views\DetailViews\UserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinformControls\AlphaImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WinformControls\HintTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -93,6 +110,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\DetailViews\ExUC.resx">
+      <DependentUpon>ExUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\UserManagement.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +144,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\work_tracking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sale_statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material_statistics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\material_state.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_material.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
