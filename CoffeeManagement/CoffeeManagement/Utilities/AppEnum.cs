@@ -14,5 +14,13 @@ namespace CoffeeManagement.Utilities
             Baristar,
             Worker
         }
+
+        public enum MenuType
+        {
+            Sale,
+            WorkTracking,
+            Statistics,
+            LogOut
+        }
     }
 }

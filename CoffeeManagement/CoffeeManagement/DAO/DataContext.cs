@@ -12,8 +12,8 @@ namespace CoffeeManagement.DAO
         public CoffeeDbContext() : base(_dbName)
         {
         // switch on these lines to drop and create new database when model changes.
-        //    Database.SetInitializer(new DbInitializer());            
-        //    Database.Initialize(false);
+            //Database.SetInitializer(new DbInitializer());
+            //Database.Initialize(false);
 
             if (Database.CreateIfNotExists())
             {
@@ -38,14 +38,16 @@ namespace CoffeeManagement.DAO
             {
                 UserName = "admin",
                 Password = "admin",
-                FullName = "Admin"
+                FullName = "Admin",
+                Level = Utilities.AppEnum.UserLevel.Admin
             });
 
             context.Users.Add(new User
             {
                 UserName = "baristar",
                 Password = "123",
-                FullName = "Baristar"
+                FullName = "Baristar",
+                Level = Utilities.AppEnum.UserLevel.Baristar
 
             });
 
@@ -53,7 +55,8 @@ namespace CoffeeManagement.DAO
             {
                 UserName = "receptionist",
                 Password = "123",
-                FullName = "Receptionist"
+                FullName = "Receptionist",
+                Level = Utilities.AppEnum.UserLevel.Worker
 
             });
 
