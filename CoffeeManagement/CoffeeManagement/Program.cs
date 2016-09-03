@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeManagement.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,10 @@ namespace CoffeeManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Splash());
+            Application.Run(new Form1());
+            //Application.Run(new MasterView());
+            //MasterView masterView = new MasterView();
+            //masterView.Show();
         }
     }
 }

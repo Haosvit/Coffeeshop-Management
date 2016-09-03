@@ -121,6 +121,7 @@
             this.discount.TabIndex = 4;
             this.discount.Text = "0";
             this.discount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.discount.TextChanged += new System.EventHandler(this.discount_TextChanged);
             // 
             // label5
             // 
