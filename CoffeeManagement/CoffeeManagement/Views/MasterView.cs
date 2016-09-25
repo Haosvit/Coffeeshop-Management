@@ -1,11 +1,11 @@
 ﻿using CoffeeManagement.BO;
-using CoffeeManagement.Models;
 using CoffeeManagement.Utilities;
 using CoffeeManagement.Views.DetailViews;
 using CoffeeManagement.Views.Popups;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using CoffeeManagement.DTOs;
 
 namespace CoffeeManagement.Views
 {

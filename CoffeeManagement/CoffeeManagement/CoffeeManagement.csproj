@@ -56,7 +56,15 @@
     <Compile Include="BO\UserBo.cs" />
     <Compile Include="DAO\DataContext.cs" />
     <Compile Include="DAO\UserDao.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="DTOs\BasicSalary.cs" />
+    <Compile Include="DTOs\Bill.cs" />
+    <Compile Include="DTOs\Item.cs" />
+    <Compile Include="DTOs\ItemBill.cs" />
+    <Compile Include="DTOs\Shift.cs" />
+    <Compile Include="DTOs\Table.cs" />
+    <Compile Include="DTOs\TableBill.cs" />
+    <Compile Include="DTOs\Unit.cs" />
+    <Compile Include="DTOs\User.cs" />
     <Compile Include="Utilities\AnimationHelper.cs" />
     <Compile Include="Utilities\AppConstants.cs" />
     <Compile Include="Utilities\AppEnum.cs" />
