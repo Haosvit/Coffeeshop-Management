@@ -1,5 +1,6 @@
-﻿using CoffeeManagement.Models;
+﻿using System;
 using System.Data.Entity;
+using CoffeeManagement.DTOs;
 
 namespace CoffeeManagement.DAO
 {
@@ -7,7 +8,15 @@ namespace CoffeeManagement.DAO
     {
         private static string _dbName = "COFFEE_MANAGEMENT_DB";
 
-        // DbSets
+		// DbSets
+		public DbSet<BasicSalary> BasicSalaries { get; set; }
+		public DbSet<Bill> Bills { get; set; }
+		public DbSet<Item> Items { get; set; }
+		public DbSet<ItemBill> ItemBills { get; set; }
+		public DbSet<Shift> Shifts { get; set; }
+		public DbSet<Table> Tables { get; set; }
+		public DbSet<TableBill> TableBills { get; set; }
+		public DbSet<Unit> Units { get; set; }
         public DbSet<User> Users { get; set; }
         public CoffeeDbContext() : base(_dbName)
         {

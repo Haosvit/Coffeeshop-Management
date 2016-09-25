@@ -1,13 +1,8 @@
-﻿using CoffeeManagement.Utilities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CoffeeManagement.Utilities;
 
-namespace CoffeeManagement.Models
+namespace CoffeeManagement.DTOs
 {
     [Table("User")]
     public class User
@@ -20,5 +15,6 @@ namespace CoffeeManagement.Models
         public string Password { get; set; }
         public AppEnum.UserLevel Level { get; set; }
         public string Description { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }
