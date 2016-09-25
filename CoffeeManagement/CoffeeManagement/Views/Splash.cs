@@ -1,10 +1,9 @@
-﻿using CoffeeManagement.DAO;
-using CoffeeManagement.Views;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using CoffeeManagement.DAO;
 
-namespace CoffeeManagement
+namespace CoffeeManagement.Views
 {
     public partial class Splash : Form
     {
@@ -15,7 +14,7 @@ namespace CoffeeManagement
 
         private void Splash_Load(object sender, EventArgs e)
         {
-            SetStatus("Đang tải...");
+			SetStatus(Properties.Resources.Loading);
             _backgroundWorker.DoWork += DoLoading;
             _backgroundWorker.RunWorkerCompleted += OnWorkCompleted;
 
@@ -24,7 +23,7 @@ namespace CoffeeManagement
 
         private void OnWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            SetStatus("Xong.");
+			SetStatus(Properties.Resources.Done);
             Login loginForm = new Login();
             Hide();
             loginForm.Show();
@@ -35,8 +34,7 @@ namespace CoffeeManagement
             CoffeeDbContext dbContext = new CoffeeDbContext();
 
         }
-
-        private void SetStatus(string status)
+		private void SetStatus(string status)
         {
             _lbStatus.Text = status;
         }
@@ -47,5 +45,6 @@ namespace CoffeeManagement
             _backgroundWorker.CancelAsync();
             Application.Exit();
         }
+
 	}
 }
