@@ -25,8 +25,8 @@ namespace CoffeeManagement.Views
         {
 			SetStatus(Properties.Resources.Done);
             Login loginForm = new Login();
-            Hide();
-            loginForm.Show();
+			Hide();
+			loginForm.Show(); 
         }
 
         private void DoLoading(object sender, DoWorkEventArgs e)
