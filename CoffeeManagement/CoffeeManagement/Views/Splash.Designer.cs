@@ -1,4 +1,4 @@
-﻿namespace CoffeeManagement
+﻿namespace CoffeeManagement.Views
 {
     partial class Splash
     {
@@ -44,7 +44,7 @@
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(82, 27);
 			this.button1.TabIndex = 0;
-			this.button1.Text = "Hủy";
+			this.button1.Text = global::CoffeeManagement.Properties.Resources.Cancel;
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
@@ -59,15 +59,16 @@
 			// 
 			// _lbAppName
 			// 
-			this._lbAppName.AutoSize = true;
+			this._lbAppName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this._lbAppName.BackColor = System.Drawing.Color.Transparent;
 			this._lbAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this._lbAppName.ForeColor = System.Drawing.Color.WhiteSmoke;
-			this._lbAppName.Location = new System.Drawing.Point(149, 127);
+			this._lbAppName.Location = new System.Drawing.Point(1, 132);
 			this._lbAppName.Name = "_lbAppName";
-			this._lbAppName.Size = new System.Drawing.Size(309, 24);
+			this._lbAppName.Size = new System.Drawing.Size(600, 24);
 			this._lbAppName.TabIndex = 2;
-			this._lbAppName.Text = "CFM - QUẢN LÝ QUÁN CÀ PHÊ";
+			this._lbAppName.Text = global::CoffeeManagement.Properties.Resources.AppName;
 			// 
 			// Splash
 			// 
@@ -81,7 +82,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "Splash";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Form1";
+			this.Text = "Splash";
 			this.Load += new System.EventHandler(this.Splash_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
