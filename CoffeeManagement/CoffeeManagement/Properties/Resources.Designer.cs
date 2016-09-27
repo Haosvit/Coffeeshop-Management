@@ -177,6 +177,15 @@ namespace CoffeeManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hello .
+        /// </summary>
+        internal static string Hello {
+            get {
+                return ResourceManager.GetString("Hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap indicator {
@@ -193,6 +202,15 @@ namespace CoffeeManagement.Properties {
             get {
                 object obj = ResourceManager.GetObject("invalid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quản lý mặt hàng.
+        /// </summary>
+        internal static string ItemManagerView {
+            get {
+                return ResourceManager.GetString("ItemManagerView", resourceCulture);
             }
         }
         

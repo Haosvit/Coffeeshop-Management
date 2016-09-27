@@ -83,7 +83,7 @@
 			this.checkedListBox1.FormattingEnabled = true;
 			this.checkedListBox1.Location = new System.Drawing.Point(17, 73);
 			this.checkedListBox1.Name = "checkedListBox1";
-			this.checkedListBox1.Size = new System.Drawing.Size(141, 349);
+			this.checkedListBox1.Size = new System.Drawing.Size(141, 334);
 			this.checkedListBox1.TabIndex = 2;
 			// 
 			// label4
@@ -113,7 +113,7 @@
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(167, 71);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(712, 351);
+			this.dataGridView1.Size = new System.Drawing.Size(712, 338);
 			this.dataGridView1.TabIndex = 5;
 			// 
 			// dataGridView2
@@ -124,7 +124,7 @@
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView2.Location = new System.Drawing.Point(885, 71);
 			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.Size = new System.Drawing.Size(432, 351);
+			this.dataGridView2.Size = new System.Drawing.Size(403, 338);
 			this.dataGridView2.TabIndex = 6;
 			// 
 			// label6
@@ -132,7 +132,7 @@
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(353, 437);
+			this.label6.Location = new System.Drawing.Point(353, 424);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(67, 16);
 			this.label6.TabIndex = 10;
@@ -142,7 +142,7 @@
 			// 
 			this._lbTotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this._lbTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this._lbTotalPrice.Location = new System.Drawing.Point(426, 437);
+			this._lbTotalPrice.Location = new System.Drawing.Point(426, 424);
 			this._lbTotalPrice.Name = "_lbTotalPrice";
 			this._lbTotalPrice.Size = new System.Drawing.Size(143, 16);
 			this._lbTotalPrice.TabIndex = 11;
@@ -154,7 +154,7 @@
 			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(575, 437);
+			this.label7.Location = new System.Drawing.Point(575, 424);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(36, 16);
 			this.label7.TabIndex = 12;
@@ -167,7 +167,7 @@
 			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button2.Image = global::CoffeeManagement.Properties.Resources.print;
 			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(167, 464);
+			this.button2.Location = new System.Drawing.Point(167, 451);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(110, 40);
 			this.button2.TabIndex = 13;
@@ -182,7 +182,7 @@
 			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button3.Image = global::CoffeeManagement.Properties.Resources.pay;
 			this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button3.Location = new System.Drawing.Point(283, 464);
+			this.button3.Location = new System.Drawing.Point(283, 451);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(110, 40);
 			this.button3.TabIndex = 14;
@@ -197,7 +197,7 @@
 			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button4.Image = global::CoffeeManagement.Properties.Resources.delete;
 			this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button4.Location = new System.Drawing.Point(520, 464);
+			this.button4.Location = new System.Drawing.Point(520, 451);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(90, 40);
 			this.button4.TabIndex = 15;
@@ -239,7 +239,7 @@
 			this.Controls.Add(this.label1);
 			this.MinimumSize = new System.Drawing.Size(900, 500);
 			this.Name = "OrderView";
-			this.Size = new System.Drawing.Size(1329, 513);
+			this.Size = new System.Drawing.Size(1300, 500);
 			this.Load += new System.EventHandler(this.OrderView_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

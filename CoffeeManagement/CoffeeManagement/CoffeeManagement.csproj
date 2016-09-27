@@ -81,6 +81,12 @@
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailViews\IDetailView.cs" />
+    <Compile Include="Views\DetailViews\ItemManagerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\ItemManagerView.Designer.cs">
+      <DependentUpon>ItemManagerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailViews\OrderView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomControls\SearchBox.resx">
       <DependentUpon>SearchBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\ItemManagerView.resx">
+      <DependentUpon>ItemManagerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\OrderView.resx">
       <DependentUpon>OrderView.cs</DependentUpon>
