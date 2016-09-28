@@ -84,7 +84,7 @@ namespace CoffeeManagement.Views
             switch (_selectedMenuItem.Name)
             {
                 case "_menuSale":
-                    ShowDetailView(new ExUC());
+                    ShowDetailView(new OrderView());
                     break;
                 case "_menuWorkTracking":
                     break;

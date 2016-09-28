@@ -17,5 +17,10 @@ namespace CoffeeManagement.Utilities
         {
             return MessageBox.Show(message, AppConstants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+	    public static void CreateMessage(string message)
+		{
+			MessageBox.Show(message, AppConstants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+	    }
     }
 }

@@ -2,14 +2,9 @@
 using CoffeeManagement.Utilities;
 using CoffeeManagement.Views.Popups;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using CoffeeManagement.Properties;
 
 namespace CoffeeManagement.Views
 {
@@ -20,6 +15,7 @@ namespace CoffeeManagement.Views
         public Login()
         {
             InitializeComponent();
+	        _lbAppName.Text = Resources.AppName;
 
             _backgroundWorker.DoWork += DoLogin;
             _backgroundWorker.RunWorkerCompleted += OnLoginCompleled;
@@ -47,12 +43,12 @@ namespace CoffeeManagement.Views
                 }
                 else
                 {
-                    MessageHelper.CreateErrorMessage("Thông tin đăng nhập không đúng!");
+                    MessageHelper.CreateErrorMessage(Resources.LoginError);
                 }
             }
             else
             {
-                MessageHelper.CreateErrorMessage("Bạn phải điền đủ thông tin!");
+				MessageHelper.CreateErrorMessage(Resources.FieldsAreRequired);
             }
         }
 

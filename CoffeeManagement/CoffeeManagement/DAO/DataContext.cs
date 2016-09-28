@@ -6,7 +6,7 @@ namespace CoffeeManagement.DAO
 {
     public class CoffeeDbContext : DbContext
     {
-        private static string _dbName = "COFFEE_MANAGEMENT_DB";
+        private static string _dbName = "COFFEE_MANAGEMER_DB";
 
 		// DbSets
 		public DbSet<BasicSalary> BasicSalaries { get; set; }

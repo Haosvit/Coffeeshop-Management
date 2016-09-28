@@ -74,7 +74,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackgroundImage = global::CoffeeManagement.Properties.Resources.cropped_1366_768_374296;
+			this.BackgroundImage = global::CoffeeManagement.Properties.Resources.splash;
 			this.ClientSize = new System.Drawing.Size(600, 300);
 			this.Controls.Add(this._lbAppName);
 			this.Controls.Add(this._lbStatus);
