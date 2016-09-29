@@ -31,8 +31,8 @@
             this.topPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.fromDate = new System.Windows.Forms.DateTimePicker();
-            this.toDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
+            this.toDate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -40,8 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.totalShiftLB = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.baseSalaryLB = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.baseSalaryLB = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstShift = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -91,17 +91,6 @@
             this.fromDate.Size = new System.Drawing.Size(109, 22);
             this.fromDate.TabIndex = 1;
             // 
-            // toDate
-            // 
-            this.toDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.toDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.toDate.Location = new System.Drawing.Point(192, 3);
-            this.toDate.Name = "toDate";
-            this.toDate.Size = new System.Drawing.Size(110, 22);
-            this.toDate.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -112,6 +101,17 @@
             this.label2.Size = new System.Drawing.Size(35, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "Đến:";
+            // 
+            // toDate
+            // 
+            this.toDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.toDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.toDate.Location = new System.Drawing.Point(192, 3);
+            this.toDate.Name = "toDate";
+            this.toDate.Size = new System.Drawing.Size(110, 22);
+            this.toDate.TabIndex = 1;
             // 
             // button1
             // 
@@ -151,7 +151,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(530, 330);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(530, 290);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // shiftPanel
@@ -195,16 +195,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(259, 24);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // baseSalaryLB
-            // 
-            this.baseSalaryLB.AutoSize = true;
-            this.baseSalaryLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.baseSalaryLB.Location = new System.Drawing.Point(98, 0);
-            this.baseSalaryLB.Name = "baseSalaryLB";
-            this.baseSalaryLB.Size = new System.Drawing.Size(64, 16);
-            this.baseSalaryLB.TabIndex = 1;
-            this.baseSalaryLB.Text = "5143000";
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -215,6 +205,16 @@
             this.label5.Size = new System.Drawing.Size(89, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "Lương cơ bản";
+            // 
+            // baseSalaryLB
+            // 
+            this.baseSalaryLB.AutoSize = true;
+            this.baseSalaryLB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseSalaryLB.Location = new System.Drawing.Point(98, 0);
+            this.baseSalaryLB.Name = "baseSalaryLB";
+            this.baseSalaryLB.Size = new System.Drawing.Size(64, 16);
+            this.baseSalaryLB.TabIndex = 1;
+            this.baseSalaryLB.Text = "5143000";
             // 
             // dataGridView1
             // 
@@ -234,7 +234,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(524, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(524, 254);
             this.dataGridView1.TabIndex = 2;
             // 
             // date
@@ -275,7 +275,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.topPanel);
             this.Name = "WorkTrackingListControl";
-            this.Size = new System.Drawing.Size(530, 360);
+            this.Size = new System.Drawing.Size(530, 320);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

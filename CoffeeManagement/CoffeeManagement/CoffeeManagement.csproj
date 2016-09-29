@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,12 +81,42 @@
     <Compile Include="Views\CustomControls\SearchBox.Designer.cs">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingControl.Designer.cs">
+      <DependentUpon>WorkTrackingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingDetailControl.Designer.cs">
+      <DependentUpon>WorkTrackingDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingListControl.Designer.cs">
+      <DependentUpon>WorkTrackingListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailViews\IDetailView.cs" />
     <Compile Include="Views\DetailViews\OrderView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\DetailViews\OrderView.Designer.cs">
       <DependentUpon>OrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\StaffListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\StaffListControl.Designer.cs">
+      <DependentUpon>StaffListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin.Designer.cs">
+      <DependentUpon>WorkTrackingAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -111,6 +142,12 @@
     <Compile Include="Views\Popups\BillAndPay.designer.cs">
       <DependentUpon>BillAndPay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\DeleteItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\DeleteItem.Designer.cs">
+      <DependentUpon>DeleteItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\EndShiftStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +165,12 @@
     </Compile>
     <Compile Include="Views\Popups\JoinTable.Designer.cs">
       <DependentUpon>JoinTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\UpdateItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\UpdateItem.Designer.cs">
+      <DependentUpon>UpdateItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\UserManagement.cs">
       <SubType>Form</SubType>
@@ -151,8 +194,23 @@
     <EmbeddedResource Include="Views\CustomControls\SearchBox.resx">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingControl.resx">
+      <DependentUpon>WorkTrackingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingDetailControl.resx">
+      <DependentUpon>WorkTrackingDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingListControl.resx">
+      <DependentUpon>WorkTrackingListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\OrderView.resx">
       <DependentUpon>OrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\StaffListControl.resx">
+      <DependentUpon>StaffListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\WorkTrackingAdmin.resx">
+      <DependentUpon>WorkTrackingAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -166,6 +224,9 @@
     <EmbeddedResource Include="Views\Popups\BillAndPay.resx">
       <DependentUpon>BillAndPay.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\DeleteItem.resx">
+      <DependentUpon>DeleteItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\EndShiftStatistics.resx">
       <DependentUpon>EndShiftStatistics.cs</DependentUpon>
     </EmbeddedResource>
@@ -174,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\JoinTable.resx">
       <DependentUpon>JoinTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\UpdateItem.resx">
+      <DependentUpon>UpdateItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>

@@ -47,6 +47,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.Controls.Add(this.saveBtn);
             this.panel1.Controls.Add(this.noteTB);
             this.panel1.Controls.Add(this.thirdShiftCB);

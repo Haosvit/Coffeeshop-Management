@@ -412,5 +412,14 @@ namespace CoffeeManagement.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quản lý công việc.
+        /// </summary>
+        internal static string WorkTrackingAdmin {
+            get {
+                return ResourceManager.GetString("WorkTrackingAdmin", resourceCulture);
+            }
+        }
     }
 }
