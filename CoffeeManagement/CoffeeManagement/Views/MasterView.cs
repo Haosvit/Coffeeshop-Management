@@ -86,7 +86,8 @@ namespace CoffeeManagement.Views
                 case "_menuSale":
                     ShowDetailView(new OrderView());
                     break;
-                case "_menuWorkTracking":
+                case "_menuWorkTracking": // ngbaanh
+                    ShowDetailView(new WorkTrackingAdmin());
                     break;
                 case "_menuStatistics":
                     break;
