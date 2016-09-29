@@ -31,6 +31,10 @@ namespace CoffeeManagement.Views.DetailViews
 			MessageHelper.CreateMessage("Search");
 		}
 
-
-	}
+        private void button3_Click(object sender, System.EventArgs e)
+        {
+            Form f = new Popups.BillAndPay();
+            f.Show();
+        }
+    }
 }

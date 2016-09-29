@@ -105,6 +105,12 @@
     <Compile Include="Views\Popups\AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\BillAndPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\BillAndPay.designer.cs">
+      <DependentUpon>BillAndPay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\EndShiftStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\BillAndPay.resx">
+      <DependentUpon>BillAndPay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\EndShiftStatistics.resx">
       <DependentUpon>EndShiftStatistics.cs</DependentUpon>
