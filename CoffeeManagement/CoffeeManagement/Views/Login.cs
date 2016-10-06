@@ -89,7 +89,7 @@ namespace CoffeeManagement.Views
 
         private void Login_Load(object sender, EventArgs e)
         {
-            _lbAppName.Text = AppConstants.AppName.ToUpper();
+			_lbAppName.Text = Resources.AppName.ToUpper();
         }
 
         private void _btnLogin_VisibleChanged(object sender, EventArgs e)

@@ -11,15 +11,17 @@ namespace CoffeeManagement.Views
 {
     public partial class MasterView : Form
     {
+	    public static MasterView Instance;
         private Login _loginForm;
         private User _currentUser;
-        private const string _helloString = "Chào ";
+	    private static readonly string _helloString = Properties.Resources.Hello;
 
-        private Button _selectedMenuItem;
+	    private Button _selectedMenuItem;
         private bool _isFormClosing;
         private Color _activeColor = Color.LightGray;
         public MasterView(Login loginForm)
         {
+	        Instance = this;
             InitializeComponent();
             _currentUser = UserBo.CurrentUser;
 
@@ -27,11 +29,12 @@ namespace CoffeeManagement.Views
             _loginForm.Hide();
 
             InitMenuItems();
+	        InitDefaultDetailView();
         }
 
-        private void MasterView_Load(object sender, EventArgs e)
+		private void MasterView_Load(object sender, EventArgs e)
         {
-            Text = AppConstants.AppName.ToUpper();
+			Text = Properties.Resources.AppName.ToUpper();
             _lbHello.Text = _helloString + _currentUser.FullName;
             _lbHello.Location = new Point(Width - _lbHello.Width - 20, _lbHello.Location.Y);
         }
@@ -40,7 +43,7 @@ namespace CoffeeManagement.Views
         {
             if (!_isFormClosing)
             {
-                if (MessageHelper.CreateYesNoQuestion("Bạn có muốn đăng xuất?") == System.Windows.Forms.DialogResult.Yes)
+                if (MessageHelper.CreateYesNoQuestion("Bạn có muốn đăng xuất?") == DialogResult.Yes)
                 {
                     LogOut();
                 }
@@ -83,7 +86,7 @@ namespace CoffeeManagement.Views
 
             switch (_selectedMenuItem.Name)
             {
-                case "_menuSale":
+                case "_menuSaleManager":
                     ShowDetailView(new OrderView());
                     break;
                 case "_menuWorkTracking":
@@ -93,16 +96,18 @@ namespace CoffeeManagement.Views
                 case "_menuLogOut":
                     LogOut();
                     break;
-                case "_menuUserManagement":
+					// admin
+                case "_menuUserManager":
                     ShowPopup(new UserManagement());
                     break;
-                default:
-                    break;
+				case "_menuItemsManager":
+					ShowDetailView(new ItemManagerView());
+					break;
             }
 
         }
 
-        private void ShowDetailView(UserControl view)
+        public void ShowDetailView(UserControl view)
         {
             if (!_pMain.Controls.Contains(view))
             {
@@ -116,14 +121,14 @@ namespace CoffeeManagement.Views
             }                        
         }
 
-        private void ShowPopup(Form popup)
+        public DialogResult ShowPopup(Form popup)
         {
             if (_menuLayout.Visible)
             {
                 ToggleMenuLayout();
             }
 
-            popup.ShowDialog();
+            return popup.ShowDialog();
         }
 
         /// <summary>
@@ -160,23 +165,39 @@ namespace CoffeeManagement.Views
             switch (_currentUser.Level)
             {
                 case AppEnum.UserLevel.Admin:
+					// thong ke ban hang
                     _menuSaleStatistics.Visible = true;
+					// quan ly cham cong
                     _menuWorkTracking.Visible = true;
-                    _menuMaterialStatistics.Visible = true;
-                    _menuMaterialState.Visible = true;
-                    _menuUserManagement.Visible = true;
-                    break;
-                case AppEnum.UserLevel.Baristar:
-                    _menuMaterialState.Visible = true;
-                    _menuAddMaterial.Visible = true;
+                    // quan ly mat hang
+					_menuItemsManager.Visible = true;
+					// quan ly tai khoan
+                    _menuUserManager.Visible = true;
                     break;
                 case AppEnum.UserLevel.Worker:
-                    _menuSale.Visible = true;
+					// quan ly ban hang
+                    _menuSaleManager.Visible = true;
+					// cham cong
                     _menuWorkTracking.Visible = true;
-                    _menuStatistics.Visible = true;
+					// thong ke ket ca
+                    _menuShiftStatistics.Visible = true;
                     break;
-
             }
         }
+
+		private void InitDefaultDetailView()
+		{
+			switch (_currentUser.Level)
+			{
+				case AppEnum.UserLevel.Admin:
+					// thong ke ban hang
+					break;
+				case AppEnum.UserLevel.Worker:
+					// quan ly ban hang
+					ShowDetailView(new OrderView());
+					break;
+			}
+		}
+
     }
 }

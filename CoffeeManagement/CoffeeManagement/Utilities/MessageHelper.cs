@@ -10,17 +10,17 @@ namespace CoffeeManagement.Utilities
     public static class MessageHelper
     {
         public static DialogResult CreateYesNoQuestion(string question) {
-            return MessageBox.Show(question, AppConstants.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            return MessageBox.Show(question, Properties.Resources.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
         }
 
         public static DialogResult CreateErrorMessage(string message)
         {
-            return MessageBox.Show(message, AppConstants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return MessageBox.Show(message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 	    public static void CreateMessage(string message)
 		{
-			MessageBox.Show(message, AppConstants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show(message, Properties.Resources.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 	    }
     }
 }

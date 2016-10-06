@@ -53,8 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BO\ItemBo.cs" />
+    <Compile Include="BO\UnitBo.cs" />
     <Compile Include="BO\UserBo.cs" />
     <Compile Include="DAO\DataContext.cs" />
+    <Compile Include="DAO\ItemDao.cs" />
+    <Compile Include="DAO\UnitDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="DTOs\BasicSalary.cs" />
     <Compile Include="DTOs\Bill.cs" />
@@ -73,6 +77,7 @@
     <Compile Include="Utilities\AnimationHelper.cs" />
     <Compile Include="Utilities\AppConstants.cs" />
     <Compile Include="Utilities\AppEnum.cs" />
+    <Compile Include="Utilities\ExcelHelper.cs" />
     <Compile Include="Utilities\MessageHelper.cs" />
     <Compile Include="Views\CustomControls\SearchBox.cs">
       <SubType>UserControl</SubType>
@@ -81,6 +86,12 @@
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailViews\IDetailView.cs" />
+    <Compile Include="Views\DetailViews\ItemManagerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\ItemManagerView.Designer.cs">
+      <DependentUpon>ItemManagerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailViews\OrderView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,6 +110,12 @@
     <Compile Include="Views\MasterView.Designer.cs">
       <DependentUpon>MasterView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\ProcessItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\ProcessItem.Designer.cs">
+      <DependentUpon>ProcessItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +127,12 @@
     </Compile>
     <Compile Include="Views\Popups\EndShiftStatistics.Designer.cs">
       <DependentUpon>EndShiftStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ImportItemsFromFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\ImportItemsFromFile.Designer.cs">
+      <DependentUpon>ImportItemsFromFile.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\Indicator.cs">
       <SubType>Form</SubType>
@@ -139,6 +162,9 @@
     <EmbeddedResource Include="Views\CustomControls\SearchBox.resx">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\ItemManagerView.resx">
+      <DependentUpon>ItemManagerView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\OrderView.resx">
       <DependentUpon>OrderView.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,11 +174,17 @@
     <EmbeddedResource Include="Views\MasterView.resx">
       <DependentUpon>MasterView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\ProcessItem.resx">
+      <DependentUpon>ProcessItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\EndShiftStatistics.resx">
       <DependentUpon>EndShiftStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\ImportItemsFromFile.resx">
+      <DependentUpon>ImportItemsFromFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\Indicator.resx">
       <DependentUpon>Indicator.cs</DependentUpon>
@@ -260,6 +292,44 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\indicator.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import_records.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

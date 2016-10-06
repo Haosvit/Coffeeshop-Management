@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 using CoffeeManagement.DAO;
 
@@ -24,9 +25,11 @@ namespace CoffeeManagement.Views
         private void OnWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 			SetStatus(Properties.Resources.Done);
-            Login loginForm = new Login();
+			Login loginForm = new Login();
 			Hide();
-			loginForm.Show(); 
+			loginForm.Show();
+	        loginForm.Location = new Point(Screen.PrimaryScreen.Bounds.Width/2 - loginForm.Width/2,
+		        Screen.PrimaryScreen.Bounds.Height/2 - loginForm.Height/2);
         }
 
         private void DoLoading(object sender, DoWorkEventArgs e)

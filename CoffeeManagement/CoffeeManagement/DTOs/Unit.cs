@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoffeeManagement.DTOs
@@ -10,5 +12,6 @@ namespace CoffeeManagement.DTOs
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 		public string Name { get; set; }
+		public virtual ICollection<Item> Items { get; set; }
 	}
 }

@@ -35,13 +35,11 @@
 			this._pMain = new System.Windows.Forms.Panel();
 			this._menuLayout = new System.Windows.Forms.FlowLayoutPanel();
 			this._menuSaleStatistics = new System.Windows.Forms.Button();
-			this._menuMaterialStatistics = new System.Windows.Forms.Button();
-			this._menuMaterialState = new System.Windows.Forms.Button();
-			this._menuAddMaterial = new System.Windows.Forms.Button();
-			this._menuSale = new System.Windows.Forms.Button();
+			this._menuItemsManager = new System.Windows.Forms.Button();
+			this._menuUserManager = new System.Windows.Forms.Button();
+			this._menuSaleManager = new System.Windows.Forms.Button();
 			this._menuWorkTracking = new System.Windows.Forms.Button();
-			this._menuStatistics = new System.Windows.Forms.Button();
-			this._menuUserManagement = new System.Windows.Forms.Button();
+			this._menuShiftStatistics = new System.Windows.Forms.Button();
 			this._menuLogOut = new System.Windows.Forms.Button();
 			this.panel2.SuspendLayout();
 			this._menuLayout.SuspendLayout();
@@ -56,7 +54,7 @@
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel2.Location = new System.Drawing.Point(0, 0);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(934, 36);
+			this.panel2.Size = new System.Drawing.Size(984, 36);
 			this.panel2.TabIndex = 0;
 			// 
 			// _btnMenu
@@ -81,7 +79,7 @@
 			this._lbHello.BackColor = System.Drawing.Color.Transparent;
 			this._lbHello.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._lbHello.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this._lbHello.Location = new System.Drawing.Point(840, 10);
+			this._lbHello.Location = new System.Drawing.Point(890, 10);
 			this._lbHello.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this._lbHello.Name = "_lbHello";
 			this._lbHello.Size = new System.Drawing.Size(91, 16);
@@ -105,7 +103,7 @@
 			this._pMain.Location = new System.Drawing.Point(0, 36);
 			this._pMain.Margin = new System.Windows.Forms.Padding(0);
 			this._pMain.Name = "_pMain";
-			this._pMain.Size = new System.Drawing.Size(934, 475);
+			this._pMain.Size = new System.Drawing.Size(984, 625);
 			this._pMain.TabIndex = 4;
 			this._pMain.Click += new System.EventHandler(this._pMain_Click);
 			// 
@@ -113,20 +111,18 @@
 			// 
 			this._menuLayout.BackColor = System.Drawing.Color.WhiteSmoke;
 			this._menuLayout.Controls.Add(this._menuSaleStatistics);
-			this._menuLayout.Controls.Add(this._menuMaterialStatistics);
-			this._menuLayout.Controls.Add(this._menuMaterialState);
-			this._menuLayout.Controls.Add(this._menuAddMaterial);
-			this._menuLayout.Controls.Add(this._menuSale);
+			this._menuLayout.Controls.Add(this._menuItemsManager);
+			this._menuLayout.Controls.Add(this._menuUserManager);
+			this._menuLayout.Controls.Add(this._menuSaleManager);
 			this._menuLayout.Controls.Add(this._menuWorkTracking);
-			this._menuLayout.Controls.Add(this._menuStatistics);
-			this._menuLayout.Controls.Add(this._menuUserManagement);
+			this._menuLayout.Controls.Add(this._menuShiftStatistics);
 			this._menuLayout.Controls.Add(this._menuLogOut);
 			this._menuLayout.Dock = System.Windows.Forms.DockStyle.Left;
 			this._menuLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this._menuLayout.Location = new System.Drawing.Point(0, 36);
 			this._menuLayout.Margin = new System.Windows.Forms.Padding(0);
 			this._menuLayout.Name = "_menuLayout";
-			this._menuLayout.Size = new System.Drawing.Size(198, 475);
+			this._menuLayout.Size = new System.Drawing.Size(198, 625);
 			this._menuLayout.TabIndex = 5;
 			this._menuLayout.Visible = false;
 			// 
@@ -152,93 +148,71 @@
 			this._menuSaleStatistics.Visible = false;
 			this._menuSaleStatistics.Click += new System.EventHandler(this.OnMenuButtonClick);
 			// 
-			// _menuMaterialStatistics
+			// _menuItemsManager
 			// 
-			this._menuMaterialStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this._menuItemsManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this._menuMaterialStatistics.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-			this._menuMaterialStatistics.FlatAppearance.BorderSize = 0;
-			this._menuMaterialStatistics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this._menuMaterialStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._menuMaterialStatistics.Image = global::CoffeeManagement.Properties.Resources.material_statistics;
-			this._menuMaterialStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuMaterialStatistics.Location = new System.Drawing.Point(3, 49);
-			this._menuMaterialStatistics.Name = "_menuMaterialStatistics";
-			this._menuMaterialStatistics.Size = new System.Drawing.Size(190, 40);
-			this._menuMaterialStatistics.TabIndex = 1;
-			this._menuMaterialStatistics.Tag = "Sale";
-			this._menuMaterialStatistics.Text = "Thống kê nguyên liệu";
-			this._menuMaterialStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuMaterialStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this._menuMaterialStatistics.UseVisualStyleBackColor = true;
-			this._menuMaterialStatistics.Visible = false;
-			this._menuMaterialStatistics.Click += new System.EventHandler(this.OnMenuButtonClick);
+			this._menuItemsManager.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+			this._menuItemsManager.FlatAppearance.BorderSize = 0;
+			this._menuItemsManager.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+			this._menuItemsManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._menuItemsManager.Image = global::CoffeeManagement.Properties.Resources.material_state;
+			this._menuItemsManager.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._menuItemsManager.Location = new System.Drawing.Point(3, 49);
+			this._menuItemsManager.Name = "_menuItemsManager";
+			this._menuItemsManager.Size = new System.Drawing.Size(190, 40);
+			this._menuItemsManager.TabIndex = 2;
+			this._menuItemsManager.Tag = "Sale";
+			this._menuItemsManager.Text = "Quản lý mặt hàng";
+			this._menuItemsManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._menuItemsManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this._menuItemsManager.UseVisualStyleBackColor = true;
+			this._menuItemsManager.Visible = false;
+			this._menuItemsManager.Click += new System.EventHandler(this.OnMenuButtonClick);
 			// 
-			// _menuMaterialState
+			// _menuUserManager
 			// 
-			this._menuMaterialState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this._menuUserManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this._menuMaterialState.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-			this._menuMaterialState.FlatAppearance.BorderSize = 0;
-			this._menuMaterialState.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this._menuMaterialState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._menuMaterialState.Image = global::CoffeeManagement.Properties.Resources.material_state;
-			this._menuMaterialState.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuMaterialState.Location = new System.Drawing.Point(3, 95);
-			this._menuMaterialState.Name = "_menuMaterialState";
-			this._menuMaterialState.Size = new System.Drawing.Size(190, 40);
-			this._menuMaterialState.TabIndex = 2;
-			this._menuMaterialState.Tag = "Sale";
-			this._menuMaterialState.Text = "Trạng thái kho";
-			this._menuMaterialState.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuMaterialState.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this._menuMaterialState.UseVisualStyleBackColor = true;
-			this._menuMaterialState.Visible = false;
-			this._menuMaterialState.Click += new System.EventHandler(this.OnMenuButtonClick);
+			this._menuUserManager.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+			this._menuUserManager.FlatAppearance.BorderSize = 0;
+			this._menuUserManager.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+			this._menuUserManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._menuUserManager.Image = global::CoffeeManagement.Properties.Resources.user_32;
+			this._menuUserManager.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._menuUserManager.Location = new System.Drawing.Point(3, 95);
+			this._menuUserManager.Name = "_menuUserManager";
+			this._menuUserManager.Size = new System.Drawing.Size(190, 40);
+			this._menuUserManager.TabIndex = 8;
+			this._menuUserManager.Tag = "Sale";
+			this._menuUserManager.Text = "Quản lý tài khoản";
+			this._menuUserManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._menuUserManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this._menuUserManager.UseVisualStyleBackColor = true;
+			this._menuUserManager.Visible = false;
+			this._menuUserManager.Click += new System.EventHandler(this.OnMenuButtonClick);
 			// 
-			// _menuAddMaterial
+			// _menuSaleManager
 			// 
-			this._menuAddMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this._menuSaleManager.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this._menuAddMaterial.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-			this._menuAddMaterial.FlatAppearance.BorderSize = 0;
-			this._menuAddMaterial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this._menuAddMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._menuAddMaterial.Image = global::CoffeeManagement.Properties.Resources.add_material;
-			this._menuAddMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuAddMaterial.Location = new System.Drawing.Point(3, 141);
-			this._menuAddMaterial.Name = "_menuAddMaterial";
-			this._menuAddMaterial.Size = new System.Drawing.Size(190, 40);
-			this._menuAddMaterial.TabIndex = 3;
-			this._menuAddMaterial.Tag = "Sale";
-			this._menuAddMaterial.Text = "Nhập nguyên liệu";
-			this._menuAddMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuAddMaterial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this._menuAddMaterial.UseVisualStyleBackColor = true;
-			this._menuAddMaterial.Visible = false;
-			this._menuAddMaterial.Click += new System.EventHandler(this.OnMenuButtonClick);
-			// 
-			// _menuSale
-			// 
-			this._menuSale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this._menuSale.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-			this._menuSale.FlatAppearance.BorderSize = 0;
-			this._menuSale.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this._menuSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._menuSale.Image = global::CoffeeManagement.Properties.Resources.sale;
-			this._menuSale.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuSale.Location = new System.Drawing.Point(3, 187);
-			this._menuSale.Name = "_menuSale";
-			this._menuSale.Size = new System.Drawing.Size(190, 40);
-			this._menuSale.TabIndex = 4;
-			this._menuSale.Tag = "Sale";
-			this._menuSale.Text = "Quản lý bán hàng";
-			this._menuSale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuSale.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this._menuSale.UseVisualStyleBackColor = true;
-			this._menuSale.Visible = false;
-			this._menuSale.Click += new System.EventHandler(this.OnMenuButtonClick);
+			this._menuSaleManager.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+			this._menuSaleManager.FlatAppearance.BorderSize = 0;
+			this._menuSaleManager.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+			this._menuSaleManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._menuSaleManager.Image = global::CoffeeManagement.Properties.Resources.sale;
+			this._menuSaleManager.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._menuSaleManager.Location = new System.Drawing.Point(3, 141);
+			this._menuSaleManager.Name = "_menuSaleManager";
+			this._menuSaleManager.Size = new System.Drawing.Size(190, 40);
+			this._menuSaleManager.TabIndex = 4;
+			this._menuSaleManager.Tag = "Sale";
+			this._menuSaleManager.Text = "Quản lý bán hàng";
+			this._menuSaleManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._menuSaleManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this._menuSaleManager.UseVisualStyleBackColor = true;
+			this._menuSaleManager.Visible = false;
+			this._menuSaleManager.Click += new System.EventHandler(this.OnMenuButtonClick);
 			// 
 			// _menuWorkTracking
 			// 
@@ -250,7 +224,7 @@
 			this._menuWorkTracking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._menuWorkTracking.Image = global::CoffeeManagement.Properties.Resources.work_tracking;
 			this._menuWorkTracking.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuWorkTracking.Location = new System.Drawing.Point(3, 233);
+			this._menuWorkTracking.Location = new System.Drawing.Point(3, 187);
 			this._menuWorkTracking.Name = "_menuWorkTracking";
 			this._menuWorkTracking.Size = new System.Drawing.Size(190, 40);
 			this._menuWorkTracking.TabIndex = 5;
@@ -262,47 +236,25 @@
 			this._menuWorkTracking.Visible = false;
 			this._menuWorkTracking.Click += new System.EventHandler(this.OnMenuButtonClick);
 			// 
-			// _menuStatistics
+			// _menuShiftStatistics
 			// 
-			this._menuStatistics.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-			this._menuStatistics.FlatAppearance.BorderSize = 0;
-			this._menuStatistics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this._menuStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._menuStatistics.Image = global::CoffeeManagement.Properties.Resources.statistics;
-			this._menuStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuStatistics.Location = new System.Drawing.Point(3, 279);
-			this._menuStatistics.Name = "_menuStatistics";
-			this._menuStatistics.Size = new System.Drawing.Size(190, 40);
-			this._menuStatistics.TabIndex = 6;
-			this._menuStatistics.Tag = "Statistics";
-			this._menuStatistics.Text = "Thống kê && kết ca";
-			this._menuStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this._menuStatistics.UseVisualStyleBackColor = true;
-			this._menuStatistics.Visible = false;
-			this._menuStatistics.Click += new System.EventHandler(this.OnMenuButtonClick);
-			// 
-			// _menuUserManagement
-			// 
-			this._menuUserManagement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this._menuUserManagement.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-			this._menuUserManagement.FlatAppearance.BorderSize = 0;
-			this._menuUserManagement.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this._menuUserManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._menuUserManagement.Image = global::CoffeeManagement.Properties.Resources.user_32;
-			this._menuUserManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuUserManagement.Location = new System.Drawing.Point(3, 325);
-			this._menuUserManagement.Name = "_menuUserManagement";
-			this._menuUserManagement.Size = new System.Drawing.Size(190, 40);
-			this._menuUserManagement.TabIndex = 8;
-			this._menuUserManagement.Tag = "Sale";
-			this._menuUserManagement.Text = "Quản lý tài khoản";
-			this._menuUserManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuUserManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this._menuUserManagement.UseVisualStyleBackColor = true;
-			this._menuUserManagement.Visible = false;
-			this._menuUserManagement.Click += new System.EventHandler(this.OnMenuButtonClick);
+			this._menuShiftStatistics.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
+			this._menuShiftStatistics.FlatAppearance.BorderSize = 0;
+			this._menuShiftStatistics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+			this._menuShiftStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._menuShiftStatistics.Image = global::CoffeeManagement.Properties.Resources.statistics;
+			this._menuShiftStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._menuShiftStatistics.Location = new System.Drawing.Point(3, 233);
+			this._menuShiftStatistics.Name = "_menuShiftStatistics";
+			this._menuShiftStatistics.Size = new System.Drawing.Size(190, 40);
+			this._menuShiftStatistics.TabIndex = 6;
+			this._menuShiftStatistics.Tag = "Statistics";
+			this._menuShiftStatistics.Text = "Thống kê && kết ca";
+			this._menuShiftStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._menuShiftStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this._menuShiftStatistics.UseVisualStyleBackColor = true;
+			this._menuShiftStatistics.Visible = false;
+			this._menuShiftStatistics.Click += new System.EventHandler(this.OnMenuButtonClick);
 			// 
 			// _menuLogOut
 			// 
@@ -312,7 +264,7 @@
 			this._menuLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._menuLogOut.Image = global::CoffeeManagement.Properties.Resources.log_out;
 			this._menuLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuLogOut.Location = new System.Drawing.Point(3, 371);
+			this._menuLogOut.Location = new System.Drawing.Point(3, 279);
 			this._menuLogOut.Name = "_menuLogOut";
 			this._menuLogOut.Size = new System.Drawing.Size(190, 40);
 			this._menuLogOut.TabIndex = 7;
@@ -327,16 +279,14 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(934, 511);
+			this.ClientSize = new System.Drawing.Size(984, 661);
 			this.Controls.Add(this._menuLayout);
 			this.Controls.Add(this._pMain);
 			this.Controls.Add(this.panel2);
-			this.MaximizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(950, 550);
+			this.MinimumSize = new System.Drawing.Size(800, 600);
 			this.Name = "MasterView";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "CFM - QUẢN LÝ QUÁN CÀ PHÊ";
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MasterView_FormClosing);
 			this.Load += new System.EventHandler(this.MasterView_Load);
 			this.panel2.ResumeLayout(false);
@@ -354,15 +304,13 @@
         private System.Windows.Forms.Panel _pMain;
         private System.Windows.Forms.Button _btnMenu;
         private System.Windows.Forms.FlowLayoutPanel _menuLayout;
-        private System.Windows.Forms.Button _menuSale;
+        private System.Windows.Forms.Button _menuSaleManager;
         private System.Windows.Forms.Button _menuWorkTracking;
-        private System.Windows.Forms.Button _menuStatistics;
+        private System.Windows.Forms.Button _menuShiftStatistics;
         private System.Windows.Forms.Button _menuLogOut;
-        private System.Windows.Forms.Button _menuSaleStatistics;
-        private System.Windows.Forms.Button _menuMaterialStatistics;
-        private System.Windows.Forms.Button _menuMaterialState;
-        private System.Windows.Forms.Button _menuAddMaterial;
-        private System.Windows.Forms.Button _menuUserManagement;
+		private System.Windows.Forms.Button _menuSaleStatistics;
+		private System.Windows.Forms.Button _menuItemsManager;
+        private System.Windows.Forms.Button _menuUserManager;
 
 
 
