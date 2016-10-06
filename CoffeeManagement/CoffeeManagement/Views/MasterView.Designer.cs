@@ -54,7 +54,7 @@
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel2.Location = new System.Drawing.Point(0, 0);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(934, 36);
+			this.panel2.Size = new System.Drawing.Size(984, 36);
 			this.panel2.TabIndex = 0;
 			// 
 			// _btnMenu
@@ -79,7 +79,7 @@
 			this._lbHello.BackColor = System.Drawing.Color.Transparent;
 			this._lbHello.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._lbHello.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this._lbHello.Location = new System.Drawing.Point(840, 10);
+			this._lbHello.Location = new System.Drawing.Point(890, 10);
 			this._lbHello.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this._lbHello.Name = "_lbHello";
 			this._lbHello.Size = new System.Drawing.Size(91, 16);
@@ -103,7 +103,7 @@
 			this._pMain.Location = new System.Drawing.Point(0, 36);
 			this._pMain.Margin = new System.Windows.Forms.Padding(0);
 			this._pMain.Name = "_pMain";
-			this._pMain.Size = new System.Drawing.Size(934, 525);
+			this._pMain.Size = new System.Drawing.Size(984, 625);
 			this._pMain.TabIndex = 4;
 			this._pMain.Click += new System.EventHandler(this._pMain_Click);
 			// 
@@ -122,7 +122,7 @@
 			this._menuLayout.Location = new System.Drawing.Point(0, 36);
 			this._menuLayout.Margin = new System.Windows.Forms.Padding(0);
 			this._menuLayout.Name = "_menuLayout";
-			this._menuLayout.Size = new System.Drawing.Size(198, 525);
+			this._menuLayout.Size = new System.Drawing.Size(198, 625);
 			this._menuLayout.TabIndex = 5;
 			this._menuLayout.Visible = false;
 			// 
@@ -279,16 +279,14 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(934, 561);
+			this.ClientSize = new System.Drawing.Size(984, 661);
 			this.Controls.Add(this._menuLayout);
 			this.Controls.Add(this._pMain);
 			this.Controls.Add(this.panel2);
-			this.MaximizeBox = false;
-			this.MinimumSize = new System.Drawing.Size(950, 550);
+			this.MinimumSize = new System.Drawing.Size(800, 600);
 			this.Name = "MasterView";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "CFM - QUẢN LÝ QUÁN CÀ PHÊ";
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MasterView_FormClosing);
 			this.Load += new System.EventHandler(this.MasterView_Load);
 			this.panel2.ResumeLayout(false);

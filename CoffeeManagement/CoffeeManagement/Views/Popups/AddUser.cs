@@ -34,7 +34,7 @@ namespace CoffeeManagement.Views.Popups
                 };
                 _userBo.Add(user);
 
-                DialogResult = System.Windows.Forms.DialogResult.OK;
+                DialogResult = DialogResult.OK;
                 Close();
             }
             else

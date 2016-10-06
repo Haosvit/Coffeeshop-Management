@@ -78,10 +78,10 @@
 			// _lbAppName
 			// 
 			this._lbAppName.AutoSize = true;
-			this._lbAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this._lbAppName.Location = new System.Drawing.Point(139, 37);
+			this._lbAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this._lbAppName.Location = new System.Drawing.Point(134, 25);
 			this._lbAppName.Name = "_lbAppName";
-			this._lbAppName.Size = new System.Drawing.Size(264, 20);
+			this._lbAppName.Size = new System.Drawing.Size(309, 24);
 			this._lbAppName.TabIndex = 8;
 			this._lbAppName.Text = "CFM - QUẢN LÝ QUÁN CÀ PHÊ";
 			this._lbAppName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -131,7 +131,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(438, 234);
+			this.ClientSize = new System.Drawing.Size(450, 234);
 			this.Controls.Add(this._lbAppName);
 			this.Controls.Add(this._tbPassword);
 			this.Controls.Add(this._tbUsername);

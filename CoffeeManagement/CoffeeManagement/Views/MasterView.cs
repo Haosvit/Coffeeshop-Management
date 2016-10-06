@@ -11,6 +11,7 @@ namespace CoffeeManagement.Views
 {
     public partial class MasterView : Form
     {
+	    public static MasterView Instance;
         private Login _loginForm;
         private User _currentUser;
 	    private static readonly string _helloString = Properties.Resources.Hello;
@@ -20,6 +21,7 @@ namespace CoffeeManagement.Views
         private Color _activeColor = Color.LightGray;
         public MasterView(Login loginForm)
         {
+	        Instance = this;
             InitializeComponent();
             _currentUser = UserBo.CurrentUser;
 
@@ -32,7 +34,7 @@ namespace CoffeeManagement.Views
 
 		private void MasterView_Load(object sender, EventArgs e)
         {
-            Text = AppConstants.AppName.ToUpper();
+			Text = Properties.Resources.AppName.ToUpper();
             _lbHello.Text = _helloString + _currentUser.FullName;
             _lbHello.Location = new Point(Width - _lbHello.Width - 20, _lbHello.Location.Y);
         }
@@ -41,7 +43,7 @@ namespace CoffeeManagement.Views
         {
             if (!_isFormClosing)
             {
-                if (MessageHelper.CreateYesNoQuestion("Bạn có muốn đăng xuất?") == System.Windows.Forms.DialogResult.Yes)
+                if (MessageHelper.CreateYesNoQuestion("Bạn có muốn đăng xuất?") == DialogResult.Yes)
                 {
                     LogOut();
                 }
@@ -105,7 +107,7 @@ namespace CoffeeManagement.Views
 
         }
 
-        private void ShowDetailView(UserControl view)
+        public void ShowDetailView(UserControl view)
         {
             if (!_pMain.Controls.Contains(view))
             {
@@ -119,14 +121,14 @@ namespace CoffeeManagement.Views
             }                        
         }
 
-        private void ShowPopup(Form popup)
+        public DialogResult ShowPopup(Form popup)
         {
             if (_menuLayout.Visible)
             {
                 ToggleMenuLayout();
             }
 
-            popup.ShowDialog();
+            return popup.ShowDialog();
         }
 
         /// <summary>

@@ -81,6 +81,15 @@ namespace CoffeeManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Đã tồn tại.
+        /// </summary>
+        internal static string AlreadyExist {
+            get {
+                return ResourceManager.GetString("AlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Coffee Manager.
         /// </summary>
         internal static string AppName {
@@ -148,6 +157,15 @@ namespace CoffeeManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sửa mặt hàng.
+        /// </summary>
+        internal static string EditItem {
+            get {
+                return ResourceManager.GetString("EditItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap end_shift {
@@ -177,6 +195,16 @@ namespace CoffeeManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap folder {
+            get {
+                object obj = ResourceManager.GetObject("folder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello .
         /// </summary>
         internal static string Hello {
@@ -188,9 +216,19 @@ namespace CoffeeManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap indicator {
+        internal static System.Drawing.Bitmap import {
             get {
-                object obj = ResourceManager.GetObject("indicator", resourceCulture);
+                object obj = ResourceManager.GetObject("import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap import_records {
+            get {
+                object obj = ResourceManager.GetObject("import_records", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,11 +244,29 @@ namespace CoffeeManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to mặt hàng.
+        /// </summary>
+        internal static string Item {
+            get {
+                return ResourceManager.GetString("Item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quản lý mặt hàng.
         /// </summary>
         internal static string ItemManagerView {
             get {
                 return ResourceManager.GetString("ItemManagerView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên mặt hàng.
+        /// </summary>
+        internal static string ItemName {
+            get {
+                return ResourceManager.GetString("ItemName", resourceCulture);
             }
         }
         
@@ -302,6 +358,15 @@ namespace CoffeeManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Giá gốc.
+        /// </summary>
+        internal static string OriginalPrice {
+            get {
+                return ResourceManager.GetString("OriginalPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap pay {
@@ -338,6 +403,15 @@ namespace CoffeeManagement.Properties {
             get {
                 object obj = ResourceManager.GetObject("sale_statistics", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giá bán.
+        /// </summary>
+        internal static string SalingPrice {
+            get {
+                return ResourceManager.GetString("SalingPrice", resourceCulture);
             }
         }
         
@@ -388,6 +462,15 @@ namespace CoffeeManagement.Properties {
             get {
                 object obj = ResourceManager.GetObject("statistics", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đơn vị tính.
+        /// </summary>
+        internal static string UnitName {
+            get {
+                return ResourceManager.GetString("UnitName", resourceCulture);
             }
         }
         
