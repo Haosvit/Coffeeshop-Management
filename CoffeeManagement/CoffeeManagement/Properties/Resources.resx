@@ -256,7 +256,10 @@
   <data name="AlreadyExist" xml:space="preserve">
     <value>Đã tồn tại</value>
   </data>
-	<data name="EditItem" xml:space="preserve">
+  <data name="EditItem" xml:space="preserve">
     <value>Sửa mặt hàng</value>
+  </data>
+  <data name="UserManager" xml:space="preserve">
+    <value>Quản lý tài khoản</value>
   </data>
 </root>
