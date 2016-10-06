@@ -495,6 +495,15 @@ namespace CoffeeManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quản lý tài khoản.
+        /// </summary>
+        internal static string UserManager {
+            get {
+                return ResourceManager.GetString("UserManager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap valid {

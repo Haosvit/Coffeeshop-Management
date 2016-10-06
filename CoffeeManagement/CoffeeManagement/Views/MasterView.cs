@@ -98,7 +98,7 @@ namespace CoffeeManagement.Views
                     break;
 					// admin
                 case "_menuUserManager":
-                    ShowPopup(new UserManagement());
+					ShowDetailView(new UserManager());
                     break;
 				case "_menuItemsManager":
 					ShowDetailView(new ItemManagerView());
