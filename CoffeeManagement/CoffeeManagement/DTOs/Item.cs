@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoffeeManagement.DTOs
@@ -17,5 +19,6 @@ namespace CoffeeManagement.DTOs
 		public int UnitId { get; set; }
 		[ForeignKey("UnitId")]
 		public virtual Unit Unit { get; set; }
+		public virtual ICollection<Bill> Bills { get; set; }
     }
 }

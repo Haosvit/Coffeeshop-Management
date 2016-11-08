@@ -64,7 +64,7 @@
 			this._tbUsername.Name = "_tbUsername";
 			this._tbUsername.Size = new System.Drawing.Size(181, 20);
 			this._tbUsername.TabIndex = 0;
-			this._tbUsername.Text = "admin";
+			this._tbUsername.Text = "worker";
 			// 
 			// _tbPassword
 			// 
@@ -73,7 +73,7 @@
 			this._tbPassword.PasswordChar = '●';
 			this._tbPassword.Size = new System.Drawing.Size(181, 20);
 			this._tbPassword.TabIndex = 1;
-			this._tbPassword.Text = "admin";
+			this._tbPassword.Text = "123";
 			// 
 			// _lbAppName
 			// 

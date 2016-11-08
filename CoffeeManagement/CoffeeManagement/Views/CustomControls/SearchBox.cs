@@ -9,6 +9,7 @@ namespace CoffeeManagement.Views.CustomControls
 		public EventHandler SearchClicked;
 		public EventHandler ClearClicked;
 		public EventHandler SearchContentChanged;
+
 		public string SearchContent
 		{ 
 			get { return SearchTextBox.Text; }

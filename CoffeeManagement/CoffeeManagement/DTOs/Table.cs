@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoffeeManagement.DTOs
@@ -11,5 +12,7 @@ namespace CoffeeManagement.DTOs
         public int Id { get; set; }
         public string Name { get; set; }
 	    public bool IsAvailable { get; set; }
+
+		public virtual ICollection<Bill> Bills { get; set; }
     }
 }
