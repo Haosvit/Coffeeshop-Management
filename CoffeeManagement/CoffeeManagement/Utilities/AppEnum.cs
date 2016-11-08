@@ -5,7 +5,6 @@
         public enum UserLevel
         {
             Admin,
-            Baristar,
             Worker
         }
 

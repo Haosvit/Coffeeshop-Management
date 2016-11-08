@@ -53,20 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BO\BillBo.cs" />
     <Compile Include="BO\ItemBo.cs" />
+    <Compile Include="BO\TableBo.cs" />
     <Compile Include="BO\UnitBo.cs" />
     <Compile Include="BO\UserBo.cs" />
+    <Compile Include="DAO\BillDao.cs" />
     <Compile Include="DAO\DataContext.cs" />
     <Compile Include="DAO\ItemDao.cs" />
+    <Compile Include="DAO\TableDao.cs" />
     <Compile Include="DAO\UnitDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="DTOs\BasicSalary.cs" />
     <Compile Include="DTOs\Bill.cs" />
     <Compile Include="DTOs\Item.cs" />
-    <Compile Include="DTOs\ItemBill.cs" />
     <Compile Include="DTOs\Shift.cs" />
     <Compile Include="DTOs\Table.cs" />
-    <Compile Include="DTOs\TableBill.cs" />
     <Compile Include="DTOs\Unit.cs" />
     <Compile Include="DTOs\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -79,6 +81,7 @@
     <Compile Include="Utilities\AppEnum.cs" />
     <Compile Include="Utilities\ExcelHelper.cs" />
     <Compile Include="Utilities\MessageHelper.cs" />
+    <Compile Include="Utilities\StringHelper.cs" />
     <Compile Include="Views\CustomControls\SearchBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +118,12 @@
     </Compile>
     <Compile Include="Views\MasterView.Designer.cs">
       <DependentUpon>MasterView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\PayBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Popups\PayBill.Designer.cs">
+      <DependentUpon>PayBill.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\ProcessItem.cs">
       <SubType>Form</SubType>
@@ -176,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MasterView.resx">
       <DependentUpon>MasterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Popups\PayBill.resx">
+      <DependentUpon>PayBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Popups\ProcessItem.resx">
       <DependentUpon>ProcessItem.cs</DependentUpon>
@@ -330,6 +342,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\import_records.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,7 +12,7 @@ namespace CoffeeManagement.BO
         public bool CheckLogin(string username, string password)
         {
             var uList = _userDao.GetAll();
-            CurrentUser = uList.SingleOrDefault(u => u.UserName == username && u.Password == password);
+            CurrentUser = uList.FirstOrDefault(u => u.UserName == username && u.Password == password);
            
             return CurrentUser != null ? true : false;
         }

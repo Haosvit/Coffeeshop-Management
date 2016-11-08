@@ -1,13 +1,38 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using CoffeeManagement.Utilities;
+using CoffeeManagement.BO;
+using CoffeeManagement.DAO;
+using CoffeeManagement.DTOs;
+using CoffeeManagement.Properties;
+using System;
+using System.Drawing;
 
 namespace CoffeeManagement.Views.DetailViews
 {
 	public partial class OrderView : UserControl, IDetailView
 	{
+		private ItemBo _itemBo = new ItemBo();
+		private List<Item> _items;
+		private BillBo _billBo = new BillBo();
+		private TableBo _tableBo = new TableBo();
+		private List<Table> _tables;
+
+		private List<Bill> _temptBills = new List<Bill>();
+		private Bill _currentBill;
+
+		private BindingSource _orderGVBindingSource = new BindingSource();
 		public OrderView()
 		{
 			InitializeComponent();
+			_itemBackgroundLoader.WorkerSupportsCancellation = true;
+			_itemBackgroundLoader.DoWork += OnLoadItemsBackground;
+			_itemBackgroundLoader.RunWorkerCompleted += OnLoadItemsCompleted;
+			// setup searchbox
+			_sbSearchItems.SearchClicked += OnSearchItems;
+			_sbSearchItems.ClearClicked += OnClearSearchContent;
+			_sbSearchItems.SearchContentChanged += OnSearchContentChanged;
 		}
 
 		public string ScreenName
@@ -17,10 +42,24 @@ namespace CoffeeManagement.Views.DetailViews
 
 		private void OrderView_Load(object sender, System.EventArgs e)
 		{
-			_sbSearchItems.SearchClicked += OnSearchItems;
-			_sbSearchItems.ClearClicked += OnClearSearchContent;
+			LoadItems();
+			LoadTables();
 		}
 
+		private void LoadTables()
+		{
+			_tables = _tableBo.GetTables();
+			foreach (Table t in _tables) {				
+				_listTables.Items.Add(t.Name, !t.IsAvailable);
+			}
+		}
+
+		private void LoadItems()
+		{
+			_itemBackgroundLoader.RunWorkerAsync();
+		}
+
+		#region Search
 		private void OnClearSearchContent(object sender, System.EventArgs e)
 		{
 
@@ -28,9 +67,165 @@ namespace CoffeeManagement.Views.DetailViews
 
 		private void OnSearchItems(object sender, System.EventArgs e)
 		{
-			MessageHelper.CreateMessage("Search");
+
 		}
 
+		private void OnSearchContentChanged(object sender, System.EventArgs e)
+		{
+			var items =
+				_items.Where(i => i.Name.ToLowerVietnameseNoTones().Contains(_sbSearchItems.SearchContent.ToLowerVietnameseNoTones()))
+					.ToList();
+			UpdateItemDataGridView(items);
+		}
+		#endregion
+
+		#region Items
+		private void OnLoadItemsBackground(object sender, System.ComponentModel.DoWorkEventArgs e)
+		{
+			_items = _itemBo.GetAll();
+		}
+
+		private void OnLoadItemsCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+		{
+			UpdateItemDataGridView(_items);
+		}
+
+		private void UpdateItemDataGridView(List<Item> items)
+		{
+			_gvItems.DataSource = items.Select(i => new { i.Name, UnitName = i.Unit.Name, i.SalingPrice }).ToList();
+			if (_gvItems.Columns.Count > 0)
+			{
+				_gvItems.Columns["Name"].HeaderText = Resources.ItemName;
+				_gvItems.Columns["UnitName"].HeaderText = Resources.UnitName;
+				_gvItems.Columns["SalingPrice"].HeaderText = Resources.SalingPrice;
+			}
+		}
+
+		#endregion
+
+		// Select item to add to order
+		private void _gvItems_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			var selectedItem = _items[_gvItems.CurrentRow.Index];
+			_currentBill.Items.Add(selectedItem);
+			CalculateBillPrice();
+			UpdateOrderGridView();
+		}
+
+		private void _btnPrint_Click(object sender, System.EventArgs e)
+		{
+		}
+
+		// click table item to view bill
+		private void _listTables_SelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			if (_listTables.SelectedIndex < 0)
+			{
+				return;
+			}
+
+			if (_listTables.GetItemCheckState(_listTables.SelectedIndex) == CheckState.Checked)
+			{
+				_currentBill = _temptBills.FirstOrDefault(b => b.Tables.Contains(_tables[_listTables.SelectedIndex]));
+				_lbTableNames.Text = string.Join(";", _currentBill.Tables.Select(t => t.Name));
+				UpdateOrderGridView();
+			}
+		}
+
+		// table item check and uncheck
+		private void _listTables_ItemCheck(object sender, ItemCheckEventArgs e)
+		{
+			if (e.NewValue == CheckState.Checked)
+			{
+				if (MessageHelper.CreateYesNoQuestion("Tạo hóa đơn cho bàn [" + _tables[e.Index] + "]?") == DialogResult.Yes)
+				{
+					// create new bill
+					Bill bill = new Bill()
+					{
+						CreatedDateTime = DateTime.Now,
+						CurrentUser = UserBo.CurrentUser
+					};
+
+					var selectedTable = _tables[e.Index];
+					bill.Tables.Add(selectedTable);
+					_temptBills.Add(bill);
+					_currentBill = bill;
+					UpdateOrderGridView();
+				}
+				else
+				{
+					e.NewValue = CheckState.Unchecked;
+				}				
+			}
+			else
+			{
+				e.NewValue = CheckState.Checked;
+			}
+
+		}
+
+		private void UpdateOrderGridView()
+		{
+			_orderGVBindingSource.DataSource = _currentBill.Items.Select( i => new { Name = i.Name, UnitName = i.Unit.Name, i.SalingPrice});
+			_gvOrder.DataSource = _orderGVBindingSource;
+			_orderGVBindingSource.ResetBindings(false);
+
+			if (_gvOrder.Columns.Count > 0)
+			{
+				_gvItems.Columns["Name"].HeaderText = Resources.ItemName;
+				_gvItems.Columns["UnitName"].HeaderText = Resources.UnitName;
+				_gvItems.Columns["SalingPrice"].HeaderText = Resources.SalingPrice;
+			}
+		}
+
+		private void _btnPay_Click(object sender, EventArgs e)
+		{
+			_billBo.SaveBill(_currentBill);
+		}
+
+		private void _listTables_MouseClick(object sender, MouseEventArgs e)
+		{
+		}
+
+		private void gộpVàoHóaĐơnHiệnTạiToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void _listTables_MouseDown(object sender, MouseEventArgs e)
+		{
+			if (e.Button == System.Windows.Forms.MouseButtons.Right)
+			{
+				var se = _listTables.SelectedIndex;
+				_tableContextMenu.Show(_listTables, new Point(e.X, e.Y));
+			}
+		}
+
+		private void _gvOrder_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			var selectedItem = _currentBill.Items.ToList()[_gvOrder.CurrentRow.Index];
+			_currentBill.Items.Remove(selectedItem);
+			CalculateBillPrice();
+			UpdateOrderGridView();
+		}
+
+		private void CalculateBillPrice()
+		{
+			_currentBill.PreTotal = _currentBill.Items.Sum(i => i.SalingPrice);
+			_lbTotalPrice.Text = _currentBill.PreTotal.ToString();
+		}
+
+		private void _btnDelete_Click(object sender, EventArgs e)
+		{
+			if (MessageHelper.CreateYesNoQuestion("Bạn có chắc chắn xóa hóa đơn này?") == DialogResult.Yes)
+			{
+				_temptBills.Remove(_currentBill);
+				_listTables.SetItemCheckState(_listTables.SelectedIndex, CheckState.Unchecked);
+				_orderGVBindingSource.DataSource = null;
+				_orderGVBindingSource.ResetBindings(false);
+
+			}
+		}
 
 	}
 }

@@ -12,10 +12,8 @@ namespace CoffeeManagement.DAO
 		public DbSet<BasicSalary> BasicSalaries { get; set; }
 		public DbSet<Bill> Bills { get; set; }
 		public DbSet<Item> Items { get; set; }
-		public DbSet<ItemBill> ItemBills { get; set; }
 		public DbSet<Shift> Shifts { get; set; }
 		public DbSet<Table> Tables { get; set; }
-		public DbSet<TableBill> TableBills { get; set; }
 		public DbSet<Unit> Units { get; set; }
         public DbSet<User> Users { get; set; }
         public CoffeeDbContext() : base(_dbName)
@@ -23,14 +21,24 @@ namespace CoffeeManagement.DAO
         // switch on these lines to drop and create new database when model changes.
             //Database.SetInitializer(new DbInitializer());
             //Database.Initialize(false);
-
             if (Database.CreateIfNotExists())
             {
                 InitDatabase();
             }
         }
-        
-        public class DbInitializer : DropCreateDatabaseIfModelChanges<CoffeeDbContext>
+
+
+	    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+	    {
+		    modelBuilder.Entity<Item>()
+			    .HasRequired(m => m.Unit)
+			    .WithMany(t => t.Items)
+			    .HasForeignKey(m => m.UnitId);
+
+			base.OnModelCreating(modelBuilder);
+	    }
+
+	    public class DbInitializer : DropCreateDatabaseIfModelChanges<CoffeeDbContext>
         {
             protected override void Seed(CoffeeDbContext context)
             {
@@ -53,23 +61,19 @@ namespace CoffeeManagement.DAO
 
             context.Users.Add(new User
             {
-                UserName = "baristar",
+                UserName = "worker",
                 Password = "123",
-                FullName = "Baristar",
-                Level = Utilities.AppEnum.UserLevel.Baristar
-
-            });
-
-            context.Users.Add(new User
-            {
-                UserName = "receptionist",
-                Password = "123",
-                FullName = "Receptionist",
+				FullName = "Worker",
                 Level = Utilities.AppEnum.UserLevel.Worker
 
             });
 
-            context.SaveChanges();
+			for (int i = 1; i <= 20; i++)
+			{
+				context.Tables.Add(new Table {Name = "Bàn " + i, IsAvailable = true});
+			}
+
+			context.SaveChanges();
         }
     }
 }
