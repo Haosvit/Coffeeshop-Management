@@ -8,6 +8,7 @@ using CoffeeManagement.DTOs;
 using CoffeeManagement.Properties;
 using System;
 using System.Drawing;
+using CoffeeManagement.Views.Popups;
 
 namespace CoffeeManagement.Views.DetailViews
 {
@@ -21,6 +22,8 @@ namespace CoffeeManagement.Views.DetailViews
 
 		private List<Bill> _temptBills = new List<Bill>();
 		private Bill _currentBill;
+
+		private bool _changedItemCheckStateFlag = false;
 
 		private BindingSource _orderGVBindingSource = new BindingSource();
 		public OrderView()
@@ -106,10 +109,20 @@ namespace CoffeeManagement.Views.DetailViews
 		// Select item to add to order
 		private void _gvItems_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			var selectedItem = _items[_gvItems.CurrentRow.Index];
-			_currentBill.Items.Add(selectedItem);
-			CalculateBillPrice();
-			UpdateOrderGridView();
+			if (_currentBill != null)
+			{
+				var selectedItem = _items[_gvItems.CurrentRow.Index];
+				_currentBill.Items.Add(selectedItem);
+				CalculateBillPrice();
+				UpdateOrderGridView();
+			}
+			else
+			{
+				if (_listTables.SelectedIndex == -1)
+				{
+					_listTables.SetItemChecked(_listTables.SelectedIndex, true);
+				}
+			}
 		}
 
 		private void _btnPrint_Click(object sender, System.EventArgs e)
@@ -127,8 +140,11 @@ namespace CoffeeManagement.Views.DetailViews
 			if (_listTables.GetItemCheckState(_listTables.SelectedIndex) == CheckState.Checked)
 			{
 				_currentBill = _temptBills.FirstOrDefault(b => b.Tables.Contains(_tables[_listTables.SelectedIndex]));
-				_lbTableNames.Text = string.Join(";", _currentBill.Tables.Select(t => t.Name));
-				UpdateOrderGridView();
+				if (_currentBill != null)
+				{
+					_lbTableNames.Text = string.Join(";", _currentBill.Tables.Select(t => t.Name));
+					UpdateOrderGridView();
+				}
 			}
 		}
 
@@ -137,7 +153,7 @@ namespace CoffeeManagement.Views.DetailViews
 		{
 			if (e.NewValue == CheckState.Checked)
 			{
-				if (MessageHelper.CreateYesNoQuestion("Tạo hóa đơn cho bàn [" + _tables[e.Index] + "]?") == DialogResult.Yes)
+				if (MessageHelper.CreateYesNoQuestion("Tạo hóa đơn cho bàn [" + _tables[e.Index].Name + "]?") == DialogResult.Yes)
 				{
 					// create new bill
 					Bill bill = new Bill()
@@ -145,12 +161,14 @@ namespace CoffeeManagement.Views.DetailViews
 						CreatedDateTime = DateTime.Now,
 						CurrentUser = UserBo.CurrentUser
 					};
+					bill.Items = new List<Item>();
 
 					var selectedTable = _tables[e.Index];
 					bill.Tables.Add(selectedTable);
 					_temptBills.Add(bill);
 					_currentBill = bill;
 					UpdateOrderGridView();
+					_lbTableNames.Text = selectedTable.Name;
 				}
 				else
 				{
@@ -159,7 +177,11 @@ namespace CoffeeManagement.Views.DetailViews
 			}
 			else
 			{
-				e.NewValue = CheckState.Checked;
+				if (!_changedItemCheckStateFlag)
+				{
+					e.NewValue = CheckState.Checked;
+				}
+				_changedItemCheckStateFlag = false;
 			}
 
 		}
@@ -180,16 +202,33 @@ namespace CoffeeManagement.Views.DetailViews
 
 		private void _btnPay_Click(object sender, EventArgs e)
 		{
-			_billBo.SaveBill(_currentBill);
+			if (MasterView.Instance.ShowPopup(new PaymentConfirm(_currentBill)) == DialogResult.OK)
+			{
+				RemoveCurrentTemptBill();
+			}
+		}
+
+		private void RemoveCurrentTemptBill()
+		{
+			foreach (Table t in _currentBill.Tables)
+			{
+				ChangeListItemCheckState(_tables.IndexOf(t), false);
+			}
+
+			_temptBills.Remove(_currentBill);
+			_orderGVBindingSource.DataSource = null;
+			_orderGVBindingSource.ResetBindings(false);
+			_lbTableNames.Text = "";
+		}
+
+		private void ChangeListItemCheckState(int index, bool isChecked)
+		{
+			_changedItemCheckStateFlag = true;
+			_listTables.SetItemChecked(index, isChecked);
 		}
 
 		private void _listTables_MouseClick(object sender, MouseEventArgs e)
 		{
-		}
-
-		private void gộpVàoHóaĐơnHiệnTạiToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-
 		}
 
 		private void _listTables_MouseDown(object sender, MouseEventArgs e)
@@ -201,6 +240,7 @@ namespace CoffeeManagement.Views.DetailViews
 			}
 		}
 
+		// remove item from order
 		private void _gvOrder_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
 			var selectedItem = _currentBill.Items.ToList()[_gvOrder.CurrentRow.Index];
@@ -217,13 +257,10 @@ namespace CoffeeManagement.Views.DetailViews
 
 		private void _btnDelete_Click(object sender, EventArgs e)
 		{
-			if (MessageHelper.CreateYesNoQuestion("Bạn có chắc chắn xóa hóa đơn này?") == DialogResult.Yes)
+			if (MessageHelper.CreateYesNoQuestion("Bạn có chắc chắn xóa hóa đơn bàn [" + string.Join(";", _currentBill.Tables.Select(t => t.Name)) + "]?") == DialogResult.Yes)
 			{
 				_temptBills.Remove(_currentBill);
-				_listTables.SetItemCheckState(_listTables.SelectedIndex, CheckState.Unchecked);
-				_orderGVBindingSource.DataSource = null;
-				_orderGVBindingSource.ResetBindings(false);
-
+				RemoveCurrentTemptBill();
 			}
 		}
 

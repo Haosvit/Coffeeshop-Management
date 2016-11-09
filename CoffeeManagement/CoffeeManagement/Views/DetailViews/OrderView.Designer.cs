@@ -326,7 +326,6 @@
 			this.gộpVàoHóaĐơnHiệnTạiToolStripMenuItem.Name = "gộpVàoHóaĐơnHiệnTạiToolStripMenuItem";
 			this.gộpVàoHóaĐơnHiệnTạiToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
 			this.gộpVàoHóaĐơnHiệnTạiToolStripMenuItem.Text = "Gộp hóa đơn";
-			this.gộpVàoHóaĐơnHiệnTạiToolStripMenuItem.Click += new System.EventHandler(this.gộpVàoHóaĐơnHiệnTạiToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem1
 			// 
