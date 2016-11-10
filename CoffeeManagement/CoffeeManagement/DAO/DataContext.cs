@@ -70,7 +70,7 @@ namespace CoffeeManagement.DAO
 
 			for (int i = 1; i <= 20; i++)
 			{
-				context.Tables.Add(new Table {Name = "Bàn " + i, IsAvailable = true});
+				context.Tables.Add(new Table {Name = "Bàn " + i, IsOccupied = true});
 			}
 
 			context.SaveChanges();

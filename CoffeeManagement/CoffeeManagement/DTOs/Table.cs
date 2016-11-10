@@ -15,7 +15,8 @@ namespace CoffeeManagement.DTOs
 		public int Id { get; set; }
 		[DataMember]
 		public string Name { get; set; }
-		public bool IsAvailable { get; set; }
+		[DataMember]
+		public bool IsOccupied { get; set; }
 
 		public virtual ICollection<Bill> Bills { get; set; }
 	}

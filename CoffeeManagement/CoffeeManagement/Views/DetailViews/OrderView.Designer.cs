@@ -157,6 +157,7 @@
 			// _btnDelete
 			// 
 			this._btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this._btnDelete.Enabled = false;
 			this._btnDelete.FlatAppearance.BorderSize = 0;
 			this._btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._btnDelete.Image = global::CoffeeManagement.Properties.Resources.delete;

@@ -56,7 +56,7 @@ namespace CoffeeManagement.Views.DetailViews
 		{
 			_tables = _tableBo.GetTables();
 			foreach (Table t in _tables) {				
-				_listTables.Items.Add(t.Name, !t.IsAvailable);
+				_listTables.Items.Add(t.Name, !t.IsOccupied);
 			}
 
 			foreach (Bill b in _temptBills)
@@ -156,6 +156,11 @@ namespace CoffeeManagement.Views.DetailViews
 					_lbTableNames.Text = string.Join(";", _currentBill.Tables.Select(t => t.Name));
 					UpdateOrderGridView();
 				}
+				_btnDelete.Enabled = true;
+			}
+			else
+			{
+				_btnDelete.Enabled = false;
 			}
 		}
 
@@ -181,11 +186,13 @@ namespace CoffeeManagement.Views.DetailViews
 					bill.Items = new List<Item>();
 
 					var selectedTable = _tables[e.Index];
+					selectedTable.IsOccupied = true;
 					bill.Tables.Add(selectedTable);
 					_temptBills.Add(bill);
 					_currentBill = bill;
 					UpdateOrderGridView();
 					_lbTableNames.Text = selectedTable.Name;
+					_btnDelete.Enabled = true;
 				}
 				else
 				{
@@ -229,13 +236,16 @@ namespace CoffeeManagement.Views.DetailViews
 		{
 			foreach (Table t in _currentBill.Tables)
 			{
-				ChangeListItemCheckState(_tables.IndexOf(_tables.SingleOrDefault(x => x.Id == t.Id)), false);
+				var currentTable = _tables.SingleOrDefault(x => x.Id == t.Id);
+				currentTable.IsOccupied = false;
+				ChangeListItemCheckState(_tables.IndexOf(currentTable), false);
 			}
 
 			_temptBills.Remove(_currentBill);
 			_orderGVBindingSource.DataSource = null;
 			_orderGVBindingSource.ResetBindings(false);
 			_lbTableNames.Text = "";
+			_currentBill = null;
 		}
 
 		private void ChangeListItemCheckState(int index, bool isChecked)
