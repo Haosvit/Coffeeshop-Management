@@ -30,17 +30,18 @@
         {
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
+			this._lbCheckTotal = new System.Windows.Forms.Label();
+			this._lbTotal = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
+			this._lbDateTime = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this._gvStats = new System.Windows.Forms.DataGridView();
+			this._btnEndShift = new System.Windows.Forms.Button();
+			this._btnStatsByBills = new System.Windows.Forms.Button();
+			this._btnStatByItems = new System.Windows.Forms.Button();
+			this._backgroundLoader = new System.ComponentModel.BackgroundWorker();
+			((System.ComponentModel.ISupportInitialize)(this._gvStats)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -63,25 +64,23 @@
 			this.label2.TabIndex = 1;
 			this.label2.Text = "Thực thu";
 			// 
-			// label3
+			// _lbCheckTotal
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(153, 51);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(89, 20);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "1.555.000";
+			this._lbCheckTotal.AutoSize = true;
+			this._lbCheckTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this._lbCheckTotal.Location = new System.Drawing.Point(153, 51);
+			this._lbCheckTotal.Name = "_lbCheckTotal";
+			this._lbCheckTotal.Size = new System.Drawing.Size(0, 20);
+			this._lbCheckTotal.TabIndex = 2;
 			// 
-			// label4
+			// _lbTotal
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(153, 23);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(89, 20);
-			this.label4.TabIndex = 3;
-			this.label4.Text = "1.555.000";
+			this._lbTotal.AutoSize = true;
+			this._lbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this._lbTotal.Location = new System.Drawing.Point(153, 23);
+			this._lbTotal.Name = "_lbTotal";
+			this._lbTotal.Size = new System.Drawing.Size(0, 20);
+			this._lbTotal.TabIndex = 3;
 			// 
 			// label5
 			// 
@@ -93,15 +92,14 @@
 			this.label5.TabIndex = 4;
 			this.label5.Text = "Ngày";
 			// 
-			// label6
+			// _lbDateTime
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(405, 23);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(79, 20);
-			this.label6.TabIndex = 5;
-			this.label6.Text = "3/9/2016";
+			this._lbDateTime.AutoSize = true;
+			this._lbDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this._lbDateTime.Location = new System.Drawing.Point(405, 23);
+			this._lbDateTime.Name = "_lbDateTime";
+			this._lbDateTime.Size = new System.Drawing.Size(0, 20);
+			this._lbDateTime.TabIndex = 5;
 			// 
 			// label7
 			// 
@@ -119,82 +117,83 @@
 			this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label8.Location = new System.Drawing.Point(405, 51);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(89, 20);
+			this.label8.Size = new System.Drawing.Size(0, 20);
 			this.label8.TabIndex = 7;
-			this.label8.Text = "1.555.000";
 			// 
-			// dataGridView1
+			// _gvStats
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(30, 144);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(535, 260);
-			this.dataGridView1.TabIndex = 8;
+			this._gvStats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this._gvStats.Location = new System.Drawing.Point(30, 144);
+			this._gvStats.Name = "_gvStats";
+			this._gvStats.Size = new System.Drawing.Size(535, 260);
+			this._gvStats.TabIndex = 8;
 			// 
-			// button3
+			// _btnEndShift
 			// 
-			this.button3.FlatAppearance.BorderSize = 0;
-			this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button3.Image = global::CoffeeManagement.Properties.Resources.end_shift;
-			this.button3.Location = new System.Drawing.Point(475, 410);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(90, 40);
-			this.button3.TabIndex = 10;
-			this.button3.Text = "Kết ca";
-			this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.button3.UseVisualStyleBackColor = true;
+			this._btnEndShift.FlatAppearance.BorderSize = 0;
+			this._btnEndShift.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+			this._btnEndShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._btnEndShift.Image = global::CoffeeManagement.Properties.Resources.end_shift;
+			this._btnEndShift.Location = new System.Drawing.Point(475, 410);
+			this._btnEndShift.Name = "_btnEndShift";
+			this._btnEndShift.Size = new System.Drawing.Size(90, 40);
+			this._btnEndShift.TabIndex = 10;
+			this._btnEndShift.Text = "Kết ca";
+			this._btnEndShift.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this._btnEndShift.UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// _btnStatsByBills
 			// 
-			this.button2.FlatAppearance.BorderSize = 0;
-			this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Image = global::CoffeeManagement.Properties.Resources.sale;
-			this.button2.Location = new System.Drawing.Point(196, 94);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(160, 40);
-			this.button2.TabIndex = 9;
-			this.button2.Text = "Theo hóa đơn";
-			this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.button2.UseVisualStyleBackColor = true;
+			this._btnStatsByBills.FlatAppearance.BorderSize = 0;
+			this._btnStatsByBills.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+			this._btnStatsByBills.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._btnStatsByBills.Image = global::CoffeeManagement.Properties.Resources.sale;
+			this._btnStatsByBills.Location = new System.Drawing.Point(196, 94);
+			this._btnStatsByBills.Name = "_btnStatsByBills";
+			this._btnStatsByBills.Size = new System.Drawing.Size(160, 40);
+			this._btnStatsByBills.TabIndex = 9;
+			this._btnStatsByBills.Text = "Theo hóa đơn";
+			this._btnStatsByBills.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this._btnStatsByBills.UseVisualStyleBackColor = true;
 			// 
-			// button1
+			// _btnStatByItems
 			// 
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Image = global::CoffeeManagement.Properties.Resources.material_statistics;
-			this.button1.Location = new System.Drawing.Point(30, 94);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(160, 40);
-			this.button1.TabIndex = 9;
-			this.button1.Text = "Theo mặt hàng";
-			this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.button1.UseVisualStyleBackColor = true;
+			this._btnStatByItems.FlatAppearance.BorderSize = 0;
+			this._btnStatByItems.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
+			this._btnStatByItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._btnStatByItems.Image = global::CoffeeManagement.Properties.Resources.material_statistics;
+			this._btnStatByItems.Location = new System.Drawing.Point(30, 94);
+			this._btnStatByItems.Name = "_btnStatByItems";
+			this._btnStatByItems.Size = new System.Drawing.Size(160, 40);
+			this._btnStatByItems.TabIndex = 9;
+			this._btnStatByItems.Text = "Theo mặt hàng";
+			this._btnStatByItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this._btnStatByItems.UseVisualStyleBackColor = true;
+			this._btnStatByItems.Click += new System.EventHandler(this._btnStats_Click);
 			// 
 			// EndShiftStatistics
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(594, 475);
-			this.Controls.Add(this.button3);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this._btnEndShift);
+			this.Controls.Add(this._btnStatsByBills);
+			this.Controls.Add(this._btnStatByItems);
+			this.Controls.Add(this._gvStats);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.label7);
-			this.Controls.Add(this.label6);
+			this.Controls.Add(this._lbDateTime);
 			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label3);
+			this.Controls.Add(this._lbTotal);
+			this.Controls.Add(this._lbCheckTotal);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.Name = "EndShiftStatistics";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "EndShiftStatistics";
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.Text = "Thống kê & kết ca";
+			this.Load += new System.EventHandler(this.EndShiftStatistics_Load);
+			((System.ComponentModel.ISupportInitialize)(this._gvStats)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -204,15 +203,16 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label _lbCheckTotal;
+        private System.Windows.Forms.Label _lbTotal;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label _lbDateTime;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView _gvStats;
+        private System.Windows.Forms.Button _btnStatByItems;
+        private System.Windows.Forms.Button _btnStatsByBills;
+        private System.Windows.Forms.Button _btnEndShift;
+		private System.ComponentModel.BackgroundWorker _backgroundLoader;
     }
 }

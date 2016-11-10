@@ -97,7 +97,12 @@ namespace CoffeeManagement.Views
 					break;
 				case "_menuWorkTracking":
 					break;
-				case "_menuStatistics":
+				case "_menuShiftStatistics":
+					// thong ke va ket ca
+
+					break;
+				case "_menuSaleStatistics":
+					// admin: thong ke ban hang
 					break;
 				case "_menuLogOut":
 					LogOut();
