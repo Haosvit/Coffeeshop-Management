@@ -29,24 +29,25 @@ namespace CoffeeManagement.Views.Popups
 			this.Height -= this.discountPanel.Height;
 			this.parity = true;
 			_bill = currentBill;
-			UpdateForm();
+            _btnPay.Enabled = false;
+            UpdateForm();
 			
 		}
 
 		private void UpdateForm()
 		{
 			_lbTableNames.Text = string.Join(";", _bill.Tables.Select(t => t.Name));
-
 			_shortPreTotal = _bill.PreTotal / 1000;
-
 			_tbBillPretotal.Text = _shortPreTotal.ToString();
 
-				try {
-					var discount = Convert.ToInt16(_tbDiscount.Text);	
-					_finalTotal = _shortPreTotal * (100 - discount) / 100;
-					_tbFinalTotal.Text = _finalTotal.ToString();
-				}
-			catch (FormatException) {
+			try
+            {
+				var discount = Convert.ToInt16(_tbDiscount.Text);	
+				_finalTotal = _shortPreTotal * (100 - discount) / 100;
+				_tbFinalTotal.Text = _finalTotal.ToString();
+			}
+            catch (FormatException)
+            {
 				_tbDiscount.SelectAll();
 			}
 		}
@@ -83,7 +84,7 @@ namespace CoffeeManagement.Views.Popups
 		}
 
 		private void givenCash_TextChanged(object sender, EventArgs e)
-	{
+	    {
 			try
 			{
 				_receivedCash = Convert.ToInt16(_tbReceive.Text);
@@ -91,22 +92,29 @@ namespace CoffeeManagement.Views.Popups
 				if (_receivedCash >= _shortPreTotal)
 				{
 					_tbReturnChanges.Text = (_receivedCash - _finalTotal).ToString();
-				}								
+                    _btnPay.Enabled = true;
+                    this._tbReceive.BackColor = Color.Green;
+                }
+                else // Đưa tiền thiếu
+                {
+                    _tbReceive.SelectAll();
+                    this._tbReceive.BackColor = Color.OrangeRed;
+                }								
 			}
 			catch (FormatException ex)
 			{
-				//this._tbReceive.BackColor = Color.OrangeRed;
-			}
+				this._tbReceive.BackColor = Color.OrangeRed;
+                _btnPay.Enabled = false;
+            }
 		}
 
 		private void cancelBtn_Click(object sender, EventArgs e)
 		{
-		//	if (MessageHelper.CreateYesNoQuestion("Bạn có chắc chắn muốn hủy đơn hàng không?") == DialogResult.Yes)
-		//	{
-		//		this.Close();
-		//	}
-			DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.Close();
+            if (MessageHelper.CreateYesNoQuestion("bạn có chắc chắn muốn hủy đơn hàng không?") == DialogResult.Yes)
+            {
+                DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                this.Close();
+            }
 		}
 
 		private void payBillBtn_Click(object sender, EventArgs e)

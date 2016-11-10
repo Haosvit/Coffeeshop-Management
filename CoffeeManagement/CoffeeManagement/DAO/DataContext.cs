@@ -19,8 +19,8 @@ namespace CoffeeManagement.DAO
         public CoffeeDbContext() : base(_dbName)
         {
         // switch on these lines to drop and create new database when model changes.
-            //Database.SetInitializer(new DbInitializer());
-            //Database.Initialize(false);
+            Database.SetInitializer(new DbInitializer());
+            Database.Initialize(false);
             if (Database.CreateIfNotExists())
             {
                 InitDatabase();
