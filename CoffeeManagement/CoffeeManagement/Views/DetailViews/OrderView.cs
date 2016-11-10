@@ -23,6 +23,9 @@ namespace CoffeeManagement.Views.DetailViews
 		private List<Bill> _temptBills = new List<Bill>();
 		private Bill _currentBill;
 
+		/// <summary>
+		/// Turn on this flag to change item checked state without effect any logics
+		/// </summary>
 		private bool _changedItemCheckStateFlag = false;
 
 		private BindingSource _orderGVBindingSource = new BindingSource();
@@ -54,6 +57,14 @@ namespace CoffeeManagement.Views.DetailViews
 			_tables = _tableBo.GetTables();
 			foreach (Table t in _tables) {				
 				_listTables.Items.Add(t.Name, !t.IsAvailable);
+			}
+
+			foreach (Bill b in _temptBills)
+			{
+				foreach (Table t in b.Tables)
+				{
+					ChangeListItemCheckState(_tables.IndexOf(_tables.SingleOrDefault(x => x.Id == t.Id)), true);
+				}
 			}
 		}
 
@@ -120,7 +131,7 @@ namespace CoffeeManagement.Views.DetailViews
 			{
 				if (_listTables.SelectedIndex == -1)
 				{
-					_listTables.SetItemChecked(_listTables.SelectedIndex, true);
+					MessageHelper.CreateMessage("Chọn bàn trước!");
 				}
 			}
 		}
@@ -139,7 +150,7 @@ namespace CoffeeManagement.Views.DetailViews
 
 			if (_listTables.GetItemCheckState(_listTables.SelectedIndex) == CheckState.Checked)
 			{
-				_currentBill = _temptBills.FirstOrDefault(b => b.Tables.Contains(_tables[_listTables.SelectedIndex]));
+				_currentBill = _temptBills.FirstOrDefault(b => b.Tables.Any(x => x.Id == _tables[_listTables.SelectedIndex].Id));
 				if (_currentBill != null)
 				{
 					_lbTableNames.Text = string.Join(";", _currentBill.Tables.Select(t => t.Name));
@@ -153,6 +164,12 @@ namespace CoffeeManagement.Views.DetailViews
 		{
 			if (e.NewValue == CheckState.Checked)
 			{
+				if (_changedItemCheckStateFlag)
+				{
+					_changedItemCheckStateFlag = false;
+					return;
+				}
+
 				if (MessageHelper.CreateYesNoQuestion("Tạo hóa đơn cho bàn [" + _tables[e.Index].Name + "]?") == DialogResult.Yes)
 				{
 					// create new bill
@@ -180,8 +197,8 @@ namespace CoffeeManagement.Views.DetailViews
 				if (!_changedItemCheckStateFlag)
 				{
 					e.NewValue = CheckState.Checked;
+					_changedItemCheckStateFlag = false;
 				}
-				_changedItemCheckStateFlag = false;
 			}
 
 		}
@@ -212,7 +229,7 @@ namespace CoffeeManagement.Views.DetailViews
 		{
 			foreach (Table t in _currentBill.Tables)
 			{
-				ChangeListItemCheckState(_tables.IndexOf(t), false);
+				ChangeListItemCheckState(_tables.IndexOf(_tables.SingleOrDefault(x => x.Id == t.Id)), false);
 			}
 
 			_temptBills.Remove(_currentBill);
@@ -257,12 +274,28 @@ namespace CoffeeManagement.Views.DetailViews
 
 		private void _btnDelete_Click(object sender, EventArgs e)
 		{
-			if (MessageHelper.CreateYesNoQuestion("Bạn có chắc chắn xóa hóa đơn bàn [" + string.Join(";", _currentBill.Tables.Select(t => t.Name)) + "]?") == DialogResult.Yes)
+			if (_currentBill != null)
 			{
-				_temptBills.Remove(_currentBill);
-				RemoveCurrentTemptBill();
+				if (MessageHelper.CreateYesNoQuestion("Bạn có chắc chắn xóa hóa đơn bàn [" + string.Join(";", _currentBill.Tables.Select(t => t.Name)) + "]?") == DialogResult.Yes)
+				{
+					_temptBills.Remove(_currentBill);
+					RemoveCurrentTemptBill();
+				}
 			}
+
 		}
 
+		// save load tempt bills
+		protected override void OnHandleDestroyed(EventArgs e)
+		{
+			base.OnHandleDestroyed(e);
+			JsonHelper.SaveTemptBills(_temptBills);
+		}
+
+		protected override void OnHandleCreated(EventArgs e)
+		{
+			base.OnHandleCreated(e);
+			_temptBills = JsonHelper.LoadTemptBills();
+		}
 	}
 }
