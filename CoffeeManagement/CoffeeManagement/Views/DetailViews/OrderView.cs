@@ -307,5 +307,34 @@ namespace CoffeeManagement.Views.DetailViews
 			base.OnHandleCreated(e);
 			_temptBills = JsonHelper.LoadTemptBills();
 		}
-	}
+
+        private void joinTableAndBill_Click(object sender, EventArgs e)
+        {
+
+            JoinTable joinTable = new JoinTable(_currentBill, _tables);
+            try
+            {
+                joinTable.UpdateDelegate = new JoinTable.UpdateTableAndBill(UpdateTableAndBillInOrderView);
+                joinTable.Show();
+            }
+            catch (ObjectDisposedException ex) { }
+            
+        }
+
+        public void UpdateTableAndBillInOrderView(Bill bill, List<Table> tables)
+        {
+            _currentBill = bill;
+            _tables = tables;
+            _listTables.Items.Clear();
+            foreach (Table t in _tables)
+            {
+                _listTables.Items.Add(t.Name, !t.IsOccupied);
+            }
+            _listTables.Refresh();
+            // @@ chỉ ghép tên bàn mà không ghép bill
+            // danh sách bàn ghép xong nó không checked nữa
+
+
+        }
+    }
 }
