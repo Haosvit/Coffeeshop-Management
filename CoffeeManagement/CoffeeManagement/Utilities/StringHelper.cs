@@ -1,4 +1,5 @@
-﻿namespace CoffeeManagement.Utilities
+﻿using System.Collections.Generic;
+namespace CoffeeManagement.Utilities
 {
 	public static class StringHelper
 	{
@@ -27,6 +28,11 @@
 		public static bool IsVietnameseWithTones(this string input)
 		{
 			return input.IndexOfAny(_vnCharactersWithTones.ToCharArray()) != -1;
+		}
+
+		public static string JoinList(string separator, List<string> list)
+		{
+			return string.Join(separator + " ", list);
 		}
 	}
 }

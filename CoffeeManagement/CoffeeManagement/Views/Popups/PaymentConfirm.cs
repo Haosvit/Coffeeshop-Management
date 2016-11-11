@@ -26,10 +26,9 @@ namespace CoffeeManagement.Views.Popups
 		public PaymentConfirm(Bill currentBill)
 		{
 			InitializeComponent();
-			this.Height -= this.discountPanel.Height;
-			this.parity = true;
+			Height -= discountPanel.Height;
+			parity = true;
 			_bill = currentBill;
-			_btnPay.Enabled = false;
 			UpdateForm();
 			
 		}
@@ -53,10 +52,10 @@ namespace CoffeeManagement.Views.Popups
 		}
 		private void expandLabel_Click(object sender, EventArgs e)
 		{
-			this.discountPanel.Visible = !this.discountPanel.Visible;
-			this.Height += (this.parity ? 1 : -1) * this.discountPanel.Height;
-			this.expandLabel.Text = (this.parity ? "▲ Thu hẹp" : "▼ Mở rộng");
-			this.parity = !this.parity;
+			discountPanel.Visible = !discountPanel.Visible;
+			Height += (parity ? 1 : -1) * discountPanel.Height;
+			expandLabel.Text = (parity ? "▲ Thu hẹp" : "▼ Mở rộng");
+			parity = !parity;
 		}
 
 		private void discountRatio_TextChanged(object sender, EventArgs e)
@@ -75,7 +74,10 @@ namespace CoffeeManagement.Views.Popups
 
 				_finalTotal = _shortPreTotal * (100 - _discount) / 100;
 				_tbFinalTotal.Text = _finalTotal.ToString();
-				_tbReturnChanges.Text = (_receivedCash - _finalTotal).ToString();
+				if (_receivedCash > 0)
+				{
+					_tbReturnChanges.Text = (_receivedCash - _finalTotal).ToString();
+				}
 			}
 			catch (FormatException ex)
 			{
@@ -92,18 +94,17 @@ namespace CoffeeManagement.Views.Popups
 				if (_receivedCash >= _shortPreTotal)
 				{
 					_tbReturnChanges.Text = (_receivedCash - _finalTotal).ToString();
-					_btnPay.Enabled = true;
-					this._tbReceive.BackColor = Color.Green;
+					_tbReceive.BackColor = Color.Green;
 				}
-				else // Đưa tiền thiếu
+				else
 				{
-					//_tbReceive.SelectAll();
-					this._tbReceive.BackColor = Color.OrangeRed;
-				}								
+					_tbReceive.BackColor = Color.OrangeRed;
+				}
+				_btnPay.Enabled = true;		
 			}
 			catch (FormatException ex)
 			{
-				this._tbReceive.BackColor = Color.OrangeRed;
+				_tbReceive.BackColor = Color.OrangeRed;
 				_btnPay.Enabled = false;
 			}
 		}
@@ -111,7 +112,7 @@ namespace CoffeeManagement.Views.Popups
 		private void cancelBtn_Click(object sender, EventArgs e)
 		{
 			DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.Close();
+			Close();
 		}
 
 		private void payBillBtn_Click(object sender, EventArgs e)
@@ -121,7 +122,7 @@ namespace CoffeeManagement.Views.Popups
 
 			_billBo.SaveBill(_bill);
 			DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.Close();
+			Close();
 
 		}
 

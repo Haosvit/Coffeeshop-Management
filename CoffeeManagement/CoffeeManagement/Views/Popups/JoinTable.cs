@@ -12,61 +12,75 @@ using CoffeeManagement.DTOs;
 
 namespace CoffeeManagement.Views.Popups
 {
-    public partial class JoinTable : Form
-    {
-        Bill _bill;
-        List<Table> _tables;
+	public partial class JoinTable : Form
+	{
+		Bill _currentBill;
+		List<Table> _occupiedTables;
+		List<Bill> _temptBills;
 
-        public delegate void UpdateTableAndBill(Bill bill, List<Table> tables);
-        public UpdateTableAndBill UpdateDelegate;
+		public JoinTable(Bill currentBill, List<Table> tables, List<Bill> temptBills)
+		{
+			InitializeComponent();
 
-        public JoinTable(Bill currentBill, List<Table> tables)
-        {
-            InitializeComponent();
-            _bill = currentBill;
-            _tables = tables;
+			_currentBill = currentBill;
+			_temptBills = temptBills;
 
-            // In danh sách bàn hiện tại
-            try
-            {
-                this.tableListTB.Text = string.Join(";", _bill.Tables.Select(t => t.Name));
-            }
-            catch (NullReferenceException e)
-            {
-                MessageHelper.CreateErrorMessage("Dữ liệu bàn chưa có!");
-                //DialogResult = DialogResult.Abort;
-                this.Close();
-                return;
-            }
-            // Danh sách bàn có thể ghép
-            foreach (Table t in _tables)
-            {
-                this.newTableCB.Items.Add(t.Name);
-            }
-        }
+			_occupiedTables = tables.Where(t => t.IsOccupied && !currentBill.Tables.Any(x => x.Id == t.Id)).ToList();
 
-        private void cancelBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+			InitUIValues();
+		}
 
-        private void okBtn_Click(object sender, EventArgs e)
-        {
-            if (MessageHelper.CreateYesNoQuestion("Bạn thực sự muốn gộp bàn?") == DialogResult.Yes)
-            {
-                // Do joining Table List, Bill Data.
-                Table selectedTable = _tables[this.newTableCB.SelectedIndex];
-                _bill.Tables.Add(selectedTable);
-                selectedTable.Bills.Add(_bill);
-                //_tables.Find(_bill.Tables.First()).Name = "";// Ghép tên bàn mới vào bàn cũ trong danh sách bàn
-                _tables.Remove(_bill.Tables.Last<Table>()); // Loại bỏ bàn vừa ghép ra khỏi danh sách
-                //_bill.Tables.First<Table>().Name
-                if (UpdateDelegate != null)
-                {// tại đây gọi nó
-                    UpdateDelegate(_bill, _tables);
-                }
-                MessageHelper.CreateMessage("Đã ghép vào bàn " + _bill.Tables.First<Table>().Name);
-            }
-        }
-    }
+		private void InitUIValues()
+		{
+			if (_currentBill.Tables.Count > 0)
+			{
+				_tbOldTable.Text = StringHelper.JoinList(";", _currentBill.Tables.Select(t => t.Name).ToList());
+			}
+						
+			// Danh sách bàn có thể ghép
+			// TODO: bỏ bàn chứa trong bill hiện tại
+			_cbNewTable.DataSource = _occupiedTables.Select(t => t.Name).ToList();
+		}
+
+		private void cancelBtn_Click(object sender, EventArgs e)
+		{
+			DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			Close();
+		}
+
+		private void okBtn_Click(object sender, EventArgs e)
+		{
+			if (MessageHelper.CreateYesNoQuestion("Xác nhận gộp bàn?") == DialogResult.Yes)
+			{
+				var fromTable = _occupiedTables[_cbNewTable.SelectedIndex];
+
+				// get the bill to merge from
+				var fromBill = _temptBills.FirstOrDefault(b => b.Tables.Any(t => t.Id == fromTable.Id));
+
+				// merge to current bill
+
+				foreach (Item i in fromBill.Items) {
+					_currentBill.Items.Add(i);
+				}
+
+				foreach (Table t in fromBill.Tables) {
+					_currentBill.Tables.Add(t);
+				}
+
+				_currentBill.PreTotal += fromBill.PreTotal;
+
+				_temptBills.Remove(fromBill);
+				
+				fromTable.IsOccupied = false;
+
+				DialogResult = System.Windows.Forms.DialogResult.OK;
+				Close();
+			}
+		}
+
+		private void JoinTable_Load(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

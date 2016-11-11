@@ -55,17 +55,22 @@ namespace CoffeeManagement.Views.DetailViews
 		private void LoadTables()
 		{
 			_tables = _tableBo.GetTables();
-			foreach (Table t in _tables) {				
-				_listTables.Items.Add(t.Name, !t.IsOccupied);
-			}
-
 			foreach (Bill b in _temptBills)
 			{
 				foreach (Table t in b.Tables)
 				{
-					ChangeListItemCheckState(_tables.IndexOf(_tables.SingleOrDefault(x => x.Id == t.Id)), true);
+					_tables.FirstOrDefault(x => x.Id == t.Id).IsOccupied = true;
 				}
 			}
+
+
+			foreach (Table t in _tables)
+			{
+				_changedItemCheckStateFlag = true;
+				_listTables.Items.Add(t.Name, t.IsOccupied);
+			}
+			_changedItemCheckStateFlag = false;
+
 		}
 
 		private void LoadItems()
@@ -153,14 +158,15 @@ namespace CoffeeManagement.Views.DetailViews
 				_currentBill = _temptBills.FirstOrDefault(b => b.Tables.Any(x => x.Id == _tables[_listTables.SelectedIndex].Id));
 				if (_currentBill != null)
 				{
-					_lbTableNames.Text = string.Join(";", _currentBill.Tables.Select(t => t.Name));
-					UpdateOrderGridView();
+					UpdateUIWhenSelectTable();
 				}
 				_btnDelete.Enabled = true;
+				_btnMergeBill.Enabled = true;
 			}
 			else
 			{
 				_btnDelete.Enabled = false;
+				_btnMergeBill.Enabled = false;
 			}
 		}
 
@@ -190,9 +196,7 @@ namespace CoffeeManagement.Views.DetailViews
 					bill.Tables.Add(selectedTable);
 					_temptBills.Add(bill);
 					_currentBill = bill;
-					UpdateOrderGridView();
-					_lbTableNames.Text = selectedTable.Name;
-					_btnDelete.Enabled = true;
+					UpdateUIWhenSelectTable();
 				}
 				else
 				{
@@ -201,13 +205,24 @@ namespace CoffeeManagement.Views.DetailViews
 			}
 			else
 			{
+				// new state = unchecked
 				if (!_changedItemCheckStateFlag)
 				{
 					e.NewValue = CheckState.Checked;
-					_changedItemCheckStateFlag = false;
 				}
+				_changedItemCheckStateFlag = false;
+				
 			}
 
+		}
+
+		private void UpdateUIWhenSelectTable()
+		{
+			UpdateOrderGridView();
+			_lbTableNames.Text = StringHelper.JoinList(";", _currentBill.Tables.Select(t => t.Name).ToList());
+			_btnDelete.Enabled = true;
+			_btnMergeBill.Enabled = true;
+			_lbTotalPrice.Text = _currentBill.PreTotal.ToString();
 		}
 
 		private void UpdateOrderGridView()
@@ -254,19 +269,6 @@ namespace CoffeeManagement.Views.DetailViews
 			_listTables.SetItemChecked(index, isChecked);
 		}
 
-		private void _listTables_MouseClick(object sender, MouseEventArgs e)
-		{
-		}
-
-		private void _listTables_MouseDown(object sender, MouseEventArgs e)
-		{
-			if (e.Button == System.Windows.Forms.MouseButtons.Right)
-			{
-				var se = _listTables.SelectedIndex;
-				_tableContextMenu.Show(_listTables, new Point(e.X, e.Y));
-			}
-		}
-
 		// remove item from order
 		private void _gvOrder_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
@@ -307,34 +309,13 @@ namespace CoffeeManagement.Views.DetailViews
 			base.OnHandleCreated(e);
 			_temptBills = JsonHelper.LoadTemptBills();
 		}
-
-        private void joinTableAndBill_Click(object sender, EventArgs e)
-        {
-
-            JoinTable joinTable = new JoinTable(_currentBill, _tables);
-            try
-            {
-                joinTable.UpdateDelegate = new JoinTable.UpdateTableAndBill(UpdateTableAndBillInOrderView);
-                joinTable.Show();
-            }
-            catch (ObjectDisposedException ex) { }
-            
-        }
-
-        public void UpdateTableAndBillInOrderView(Bill bill, List<Table> tables)
-        {
-            _currentBill = bill;
-            _tables = tables;
-            _listTables.Items.Clear();
-            foreach (Table t in _tables)
-            {
-                _listTables.Items.Add(t.Name, !t.IsOccupied);
-            }
-            _listTables.Refresh();
-            // @@ chỉ ghép tên bàn mà không ghép bill
-            // danh sách bàn ghép xong nó không checked nữa
-
-
-        }
-    }
+		private void _btnMergeBill_Click(object sender, EventArgs e)
+		{
+			if (new JoinTable(_currentBill, _tables, _temptBills).ShowDialog() == DialogResult.OK)
+			{
+				// update
+				UpdateUIWhenSelectTable();
+			}
+		}
+	}
 }
