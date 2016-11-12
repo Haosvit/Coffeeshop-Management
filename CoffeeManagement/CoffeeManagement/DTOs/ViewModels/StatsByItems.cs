@@ -12,7 +12,6 @@ namespace CoffeeManagement.DTOs.ViewModels
 		public int Quantity { get; set; }
 		public int Total { get; set; }
 
-
 		public void Dispose()
 		{
 			GC.Collect();

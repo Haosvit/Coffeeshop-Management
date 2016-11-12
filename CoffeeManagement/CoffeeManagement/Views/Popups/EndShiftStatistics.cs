@@ -78,10 +78,11 @@ namespace CoffeeManagement.Views.Popups
 							if (statItem != null)
 							{
 								statItem.Quantity++;
+								statItem.Total += (int)(i.SalingPrice * (100 - b.DiscountRate));
 							}
 							else
 							{
-								_statsByItemsList.Add(new StatsByItems { Item = i, Quantity = 1 });
+								_statsByItemsList.Add(new StatsByItems { Item = i, Quantity = 1, Total = i.SalingPrice });
 							}
 						}
 					}
@@ -97,7 +98,7 @@ namespace CoffeeManagement.Views.Popups
 				Quantity = i.Quantity,
 				UnitName = i.Item.Unit.Name,
 				UnitPrice = i.Item.SalingPrice,
-				Total = i.Item.SalingPrice * i.Quantity
+				Total = i.Total
 			}).ToList();
 
 			_gvStats.Columns["ItemName"].HeaderText = "Tên mặt hàng";

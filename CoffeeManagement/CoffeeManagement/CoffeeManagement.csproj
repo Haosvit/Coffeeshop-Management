@@ -109,6 +109,12 @@
     <Compile Include="Views\DetailViews\OrderView.Designer.cs">
       <DependentUpon>OrderView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DetailViews\SaleStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\SaleStatistics.Designer.cs">
+      <DependentUpon>SaleStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailViews\UserManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\OrderView.resx">
       <DependentUpon>OrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\SaleStatistics.resx">
+      <DependentUpon>SaleStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\UserManager.resx">
       <DependentUpon>UserManager.cs</DependentUpon>
@@ -362,6 +371,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view_24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -19,9 +19,14 @@ namespace CoffeeManagement.BO
 		}
 
 		internal List<Bill> GetBills(int userId, DateTime date)
-		{
-			var test = _billDao.GetAll();
+		{			
 			var bills = _billDao.GetAll().Where(b => b.CurrentUser.Id == userId && b.CreatedDateTime.Date == date.Date).ToList();
+			return bills.ToList();
+		}
+
+		internal List<Bill> GetBills(DateTime fromDate, DateTime toDate)
+		{
+			var bills = _billDao.GetAll().Where(b => b.CreatedDateTime.Date >= fromDate.Date && b.CreatedDateTime.Date <= toDate.Date).ToList();
 			return bills.ToList();
 		}
 	}

@@ -99,6 +99,7 @@ namespace CoffeeManagement.Views
 					break;
 				case "_menuSaleStatistics":
 					// admin: thong ke ban hang
+					ShowDetailView(new SaleStatistics());
 					break;
 				case "_menuLogOut":
 					LogOut();
@@ -196,14 +197,16 @@ namespace CoffeeManagement.Views
 			{
 				case AppEnum.UserLevel.Admin:
 					// thong ke ban hang
+					ShowDetailView(new SaleStatistics());
+					_selectedMenuItem = _menuSaleStatistics;
 					break;
 				case AppEnum.UserLevel.Worker:
 					// quan ly ban hang
 					ShowDetailView(new OrderView());
 					_selectedMenuItem = _menuSaleManager;
-					_selectedMenuItem.BackColor = _activeColor;
 					break;
 			}
+			_selectedMenuItem.BackColor = _activeColor;
 		}
 
 	}

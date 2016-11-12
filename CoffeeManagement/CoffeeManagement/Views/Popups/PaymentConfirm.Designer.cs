@@ -131,9 +131,9 @@
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.Location = new System.Drawing.Point(174, 30);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(40, 16);
+			this.label4.Size = new System.Drawing.Size(60, 16);
 			this.label4.TabIndex = 5;
-			this.label4.Text = "000 đ";
+			this.label4.Text = "000 VNĐ";
 			// 
 			// label1
 			// 
@@ -186,9 +186,9 @@
 			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label13.Location = new System.Drawing.Point(173, 35);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(40, 16);
+			this.label13.Size = new System.Drawing.Size(60, 16);
 			this.label13.TabIndex = 3;
-			this.label13.Text = "000 đ";
+			this.label13.Text = "000 VNĐ";
 			// 
 			// label11
 			// 
@@ -273,9 +273,9 @@
 			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label10.Location = new System.Drawing.Point(176, 38);
 			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(40, 16);
+			this.label10.Size = new System.Drawing.Size(60, 16);
 			this.label10.TabIndex = 5;
-			this.label10.Text = "000 đ";
+			this.label10.Text = "000 VNĐ";
 			// 
 			// label7
 			// 
@@ -283,9 +283,9 @@
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label7.Location = new System.Drawing.Point(176, 8);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(40, 16);
+			this.label7.Size = new System.Drawing.Size(60, 16);
 			this.label7.TabIndex = 6;
-			this.label7.Text = "000 đ";
+			this.label7.Text = "000 VNĐ";
 			// 
 			// label9
 			// 
