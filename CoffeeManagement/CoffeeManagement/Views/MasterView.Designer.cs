@@ -39,7 +39,6 @@
 			this._menuUserManager = new System.Windows.Forms.Button();
 			this._menuSaleManager = new System.Windows.Forms.Button();
 			this._menuWorkTracking = new System.Windows.Forms.Button();
-			this._menuShiftStatistics = new System.Windows.Forms.Button();
 			this._menuLogOut = new System.Windows.Forms.Button();
 			this.panel2.SuspendLayout();
 			this._menuLayout.SuspendLayout();
@@ -115,7 +114,6 @@
 			this._menuLayout.Controls.Add(this._menuUserManager);
 			this._menuLayout.Controls.Add(this._menuSaleManager);
 			this._menuLayout.Controls.Add(this._menuWorkTracking);
-			this._menuLayout.Controls.Add(this._menuShiftStatistics);
 			this._menuLayout.Controls.Add(this._menuLogOut);
 			this._menuLayout.Dock = System.Windows.Forms.DockStyle.Left;
 			this._menuLayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -236,26 +234,6 @@
 			this._menuWorkTracking.Visible = false;
 			this._menuWorkTracking.Click += new System.EventHandler(this.OnMenuButtonClick);
 			// 
-			// _menuShiftStatistics
-			// 
-			this._menuShiftStatistics.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
-			this._menuShiftStatistics.FlatAppearance.BorderSize = 0;
-			this._menuShiftStatistics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this._menuShiftStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this._menuShiftStatistics.Image = global::CoffeeManagement.Properties.Resources.statistics;
-			this._menuShiftStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuShiftStatistics.Location = new System.Drawing.Point(3, 233);
-			this._menuShiftStatistics.Name = "_menuShiftStatistics";
-			this._menuShiftStatistics.Size = new System.Drawing.Size(190, 40);
-			this._menuShiftStatistics.TabIndex = 6;
-			this._menuShiftStatistics.Tag = "Statistics";
-			this._menuShiftStatistics.Text = "Thống kê && kết ca";
-			this._menuShiftStatistics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuShiftStatistics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this._menuShiftStatistics.UseVisualStyleBackColor = true;
-			this._menuShiftStatistics.Visible = false;
-			this._menuShiftStatistics.Click += new System.EventHandler(this.OnMenuButtonClick);
-			// 
 			// _menuLogOut
 			// 
 			this._menuLogOut.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
@@ -264,7 +242,7 @@
 			this._menuLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._menuLogOut.Image = global::CoffeeManagement.Properties.Resources.log_out;
 			this._menuLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this._menuLogOut.Location = new System.Drawing.Point(3, 279);
+			this._menuLogOut.Location = new System.Drawing.Point(3, 233);
 			this._menuLogOut.Name = "_menuLogOut";
 			this._menuLogOut.Size = new System.Drawing.Size(190, 40);
 			this._menuLogOut.TabIndex = 7;
@@ -305,8 +283,7 @@
         private System.Windows.Forms.Button _btnMenu;
         private System.Windows.Forms.FlowLayoutPanel _menuLayout;
         private System.Windows.Forms.Button _menuSaleManager;
-        private System.Windows.Forms.Button _menuWorkTracking;
-        private System.Windows.Forms.Button _menuShiftStatistics;
+		private System.Windows.Forms.Button _menuWorkTracking;
         private System.Windows.Forms.Button _menuLogOut;
 		private System.Windows.Forms.Button _menuSaleStatistics;
 		private System.Windows.Forms.Button _menuItemsManager;

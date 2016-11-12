@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace CoffeeManagement.DTOs.ViewModels
 {
-	public class StatsByItems
+	public class StatsByItems : IDisposable
 	{
-		public string ItemName { get; set; }
+		public Item Item { get; set; }
 		public int Quantity { get; set; }
-		public string UnitName { get; set; }
-		public int UnitPrice { get; set; }
 		public int Total { get; set; }
 
+
+		public void Dispose()
+		{
+			GC.Collect();
+		}
 	}
 }

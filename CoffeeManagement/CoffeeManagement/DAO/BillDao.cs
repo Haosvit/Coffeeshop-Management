@@ -12,15 +12,17 @@ namespace CoffeeManagement.DAO
 
 		public List<Bill> GetAll()
 		{
-			return dbContext.Bills.ToList();
+			dbContext = new CoffeeDbContext();
+			return dbContext.Bills.Include(b => b.CurrentUser).ToList();
 		}
 
 		public void Add(Bill bill)
 		{
 			Bill billToSave = new Bill
 			{
-				CreatedDateTime = DateTime.Now,
-				CurrentUser = bill.CurrentUser,
+				CreatedDateTime = bill.CreatedDateTime,
+				PaidDateTime = bill.PaidDateTime,
+				CurrentUserId = bill.CurrentUser.Id,
 				DiscountRate = bill.DiscountRate,
 				PreTotal = bill.PreTotal,
 			};

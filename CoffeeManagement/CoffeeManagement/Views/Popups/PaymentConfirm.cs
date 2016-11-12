@@ -119,7 +119,7 @@ namespace CoffeeManagement.Views.Popups
 		{
 			_bill.DiscountRate = Convert.ToInt16(_tbDiscount.Text);
 			_bill.Total = Convert.ToInt16(_tbFinalTotal.Text);
-
+			_bill.PaidDateTime = DateTime.Now;
 			_billBo.SaveBill(_bill);
 			DialogResult = System.Windows.Forms.DialogResult.OK;
 			Close();

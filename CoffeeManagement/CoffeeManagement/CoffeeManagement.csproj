@@ -76,6 +76,7 @@
     <Compile Include="DTOs\Table.cs" />
     <Compile Include="DTOs\Unit.cs" />
     <Compile Include="DTOs\User.cs" />
+    <Compile Include="DTOs\ViewModels\StatsByBills.cs" />
     <Compile Include="DTOs\ViewModels\StatsByItems.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

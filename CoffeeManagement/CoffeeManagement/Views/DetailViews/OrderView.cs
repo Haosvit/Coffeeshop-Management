@@ -160,13 +160,11 @@ namespace CoffeeManagement.Views.DetailViews
 				{
 					UpdateUIWhenSelectTable();
 				}
-				_btnDelete.Enabled = true;
-				_btnMergeBill.Enabled = true;
+				SetButtonsEnabled(true);
 			}
 			else
 			{
-				_btnDelete.Enabled = false;
-				_btnMergeBill.Enabled = false;
+				SetButtonsEnabled(false);
 			}
 		}
 
@@ -187,7 +185,7 @@ namespace CoffeeManagement.Views.DetailViews
 					Bill bill = new Bill()
 					{
 						CreatedDateTime = DateTime.Now,
-						CurrentUser = UserBo.CurrentUser
+						CurrentUser = UserBo.CurrentUser,
 					};
 					bill.Items = new List<Item>();
 
@@ -220,9 +218,16 @@ namespace CoffeeManagement.Views.DetailViews
 		{
 			UpdateOrderGridView();
 			_lbTableNames.Text = StringHelper.JoinList(";", _currentBill.Tables.Select(t => t.Name).ToList());
-			_btnDelete.Enabled = true;
-			_btnMergeBill.Enabled = true;
+			SetButtonsEnabled(true);
 			_lbTotalPrice.Text = _currentBill.PreTotal.ToString();
+		}
+
+		private void SetButtonsEnabled(bool enabled)
+		{
+			_btnDelete.Enabled = enabled;
+			_btnMergeBill.Enabled = enabled;
+			_btnPay.Enabled = enabled;
+			_btnPrint.Enabled = enabled;
 		}
 
 		private void UpdateOrderGridView()
@@ -315,6 +320,18 @@ namespace CoffeeManagement.Views.DetailViews
 			{
 				// update
 				UpdateUIWhenSelectTable();
+			}
+		}
+
+		private void _btnEndShift_Click(object sender, EventArgs e)
+		{
+			if (MasterView.Instance.ShowPopup(new EndShiftStatistics()) == DialogResult.OK)
+			{
+				if (MessageHelper.CreateYesNoQuestion("Xác nhận kết ca?") == DialogResult.Yes)
+				{
+					// logout
+					MasterView.Instance.LogOut();
+				}
 			}
 		}
 	}

@@ -45,10 +45,11 @@
 			this._gvOrder = new System.Windows.Forms.DataGridView();
 			this._lbTableNames = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this._sbSearchItems = new CoffeeManagement.Views.CustomControls.SearchBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this._gvItems = new System.Windows.Forms.DataGridView();
 			this._itemBackgroundLoader = new System.ComponentModel.BackgroundWorker();
+			this._btnEndShift = new System.Windows.Forms.Button();
+			this._sbSearchItems = new CoffeeManagement.Views.CustomControls.SearchBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -87,6 +88,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this._btnEndShift);
 			this.panel1.Controls.Add(this._listTables);
 			this.panel1.Controls.Add(this.label1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,8 +100,8 @@
 			// _listTables
 			// 
 			this._listTables.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-			| System.Windows.Forms.AnchorStyles.Left) 
-			| System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this._listTables.FormattingEnabled = true;
 			this._listTables.Location = new System.Drawing.Point(3, 72);
 			this._listTables.Name = "_listTables";
@@ -182,6 +184,7 @@
 			// _btnPay
 			// 
 			this._btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this._btnPay.Enabled = false;
 			this._btnPay.FlatAppearance.BorderSize = 0;
 			this._btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._btnPay.Image = global::CoffeeManagement.Properties.Resources.pay;
@@ -198,6 +201,7 @@
 			// _btnPrint
 			// 
 			this._btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this._btnPrint.Enabled = false;
 			this._btnPrint.FlatAppearance.BorderSize = 0;
 			this._btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this._btnPrint.Image = global::CoffeeManagement.Properties.Resources.print;
@@ -247,9 +251,9 @@
 			// _gvOrder
 			// 
 			this._gvOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-			| System.Windows.Forms.AnchorStyles.Left) 
-			| System.Windows.Forms.AnchorStyles.Right)));
-			this._gvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this._gvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this._gvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this._gvOrder.Location = new System.Drawing.Point(3, 70);
 			this._gvOrder.Name = "_gvOrder";
@@ -277,19 +281,6 @@
 			this.panel3.Size = new System.Drawing.Size(343, 594);
 			this.panel3.TabIndex = 7;
 			// 
-			// _sbSearchItems
-			// 
-			this._sbSearchItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-			| System.Windows.Forms.AnchorStyles.Right)));
-			this._sbSearchItems.AutoSize = true;
-			this._sbSearchItems.BackColor = System.Drawing.Color.White;
-			this._sbSearchItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this._sbSearchItems.Location = new System.Drawing.Point(0, 36);
-			this._sbSearchItems.Name = "_sbSearchItems";
-			this._sbSearchItems.SearchContent = "";
-			this._sbSearchItems.Size = new System.Drawing.Size(340, 28);
-			this._sbSearchItems.TabIndex = 18;
-			// 
 			// label3
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -304,15 +295,43 @@
 			// _gvItems
 			// 
 			this._gvItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-			| System.Windows.Forms.AnchorStyles.Left) 
-			| System.Windows.Forms.AnchorStyles.Right)));
-			this._gvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this._gvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this._gvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this._gvItems.Location = new System.Drawing.Point(0, 70);
 			this._gvItems.Name = "_gvItems";
 			this._gvItems.Size = new System.Drawing.Size(340, 516);
 			this._gvItems.TabIndex = 7;
 			this._gvItems.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._gvItems_CellDoubleClick);
+			// 
+			// _btnEndShift
+			// 
+			this._btnEndShift.FlatAppearance.BorderSize = 0;
+			this._btnEndShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this._btnEndShift.Image = global::CoffeeManagement.Properties.Resources.end_shift;
+			this._btnEndShift.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this._btnEndShift.Location = new System.Drawing.Point(3, 5);
+			this._btnEndShift.Name = "_btnEndShift";
+			this._btnEndShift.Size = new System.Drawing.Size(112, 40);
+			this._btnEndShift.TabIndex = 24;
+			this._btnEndShift.Text = "Kết ca";
+			this._btnEndShift.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this._btnEndShift.UseVisualStyleBackColor = true;
+			this._btnEndShift.Click += new System.EventHandler(this._btnEndShift_Click);
+			// 
+			// _sbSearchItems
+			// 
+			this._sbSearchItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this._sbSearchItems.AutoSize = true;
+			this._sbSearchItems.BackColor = System.Drawing.Color.White;
+			this._sbSearchItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this._sbSearchItems.Location = new System.Drawing.Point(0, 36);
+			this._sbSearchItems.Name = "_sbSearchItems";
+			this._sbSearchItems.SearchContent = "";
+			this._sbSearchItems.Size = new System.Drawing.Size(340, 28);
+			this._sbSearchItems.TabIndex = 18;
 			// 
 			// OrderView
 			// 
@@ -359,5 +378,6 @@
 		private System.Windows.Forms.Label label4;
 		private System.ComponentModel.BackgroundWorker _itemBackgroundLoader;
 		private System.Windows.Forms.Button _btnMergeBill;
+		private System.Windows.Forms.Button _btnEndShift;
 	}
 }

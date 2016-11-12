@@ -18,8 +18,13 @@ namespace CoffeeManagement.DTOs
 
 		[DataMember]
 		public DateTime CreatedDateTime { get; set; }
+
 		[DataMember]
-		public User CurrentUser { get; set; }
+		public DateTime PaidDateTime { get; set; }
+		[DataMember]
+		public int CurrentUserId { get; set; }
+		[DataMember]
+		public virtual User CurrentUser { get; set; }
 		[DataMember]
 		public virtual ICollection<Item> Items { get; set; }
 

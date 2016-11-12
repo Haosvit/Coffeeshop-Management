@@ -54,7 +54,7 @@ namespace CoffeeManagement.Views
 			}
 		}
 
-		private void LogOut()
+		public void LogOut()
 		{
 			var userBo = new UserBo();
 			userBo.LogOut();
@@ -96,10 +96,6 @@ namespace CoffeeManagement.Views
 					ShowDetailView(new OrderView());
 					break;
 				case "_menuWorkTracking":
-					break;
-				case "_menuShiftStatistics":
-					// thong ke va ket ca
-
 					break;
 				case "_menuSaleStatistics":
 					// admin: thong ke ban hang
@@ -190,8 +186,6 @@ namespace CoffeeManagement.Views
 					_menuSaleManager.Visible = true;
 					// cham cong
 					_menuWorkTracking.Visible = true;
-					// thong ke ket ca
-					_menuShiftStatistics.Visible = true;
 					break;
 			}
 		}
@@ -207,6 +201,7 @@ namespace CoffeeManagement.Views
 					// quan ly ban hang
 					ShowDetailView(new OrderView());
 					_selectedMenuItem = _menuSaleManager;
+					_selectedMenuItem.BackColor = _activeColor;
 					break;
 			}
 		}
