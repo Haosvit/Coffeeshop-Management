@@ -97,7 +97,7 @@ namespace CoffeeManagement.Views
 					ShowDetailView(new OrderView());
 					break;
 				case "_menuWorkTracking": // Theo doi cong viec
-                    ShowDetailView(new WorkTrackingContainerControl());
+                    ShowDetailView(new WorkTrackingView());
 					break;
 				case "_menuSaleStatistics":
 					// admin: thong ke ban hang

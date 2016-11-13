@@ -96,6 +96,12 @@
     <Compile Include="Views\CustomControls\SearchBox.Designer.cs">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomControls\StaffListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\StaffListControl.designer.cs">
+      <DependentUpon>StaffListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CustomControls\WorkTrackingContainerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -138,6 +144,12 @@
     </Compile>
     <Compile Include="Views\DetailViews\UserManager.Designer.cs">
       <DependentUpon>UserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingView.Designer.cs">
+      <DependentUpon>WorkTrackingView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -209,6 +221,9 @@
     <EmbeddedResource Include="Views\CustomControls\SearchBox.resx">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\StaffListControl.resx">
+      <DependentUpon>StaffListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomControls\WorkTrackingContainerControl.resx">
       <DependentUpon>WorkTrackingContainerControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\UserManager.resx">
       <DependentUpon>UserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\WorkTrackingView.resx">
+      <DependentUpon>WorkTrackingView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
