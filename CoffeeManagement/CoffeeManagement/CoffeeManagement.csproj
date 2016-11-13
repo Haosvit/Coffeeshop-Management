@@ -102,24 +102,6 @@
     <Compile Include="Views\CustomControls\StaffListControl.designer.cs">
       <DependentUpon>StaffListControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\CustomControls\WorkTrackingContainerControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\CustomControls\WorkTrackingContainerControl.designer.cs">
-      <DependentUpon>WorkTrackingContainerControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CustomControls\WorkTrackingTopControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\CustomControls\WorkTrackingTopControl.designer.cs">
-      <DependentUpon>WorkTrackingTopControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CustomControls\WorkTrackingBottomControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\CustomControls\WorkTrackingBottomControl.designer.cs">
-      <DependentUpon>WorkTrackingBottomControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\DetailViews\IDetailView.cs" />
     <Compile Include="Views\DetailViews\ItemManagerView.cs">
       <SubType>UserControl</SubType>
@@ -145,11 +127,17 @@
     <Compile Include="Views\DetailViews\UserManager.Designer.cs">
       <DependentUpon>UserManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DetailViews\WorkTrackingView.cs">
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\DetailViews\WorkTrackingView.Designer.cs">
-      <DependentUpon>WorkTrackingView.cs</DependentUpon>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin.Designer.cs">
+      <DependentUpon>WorkTrackingAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin_old.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin_old.Designer.cs">
+      <DependentUpon>WorkTrackingAdmin_old.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -224,15 +212,6 @@
     <EmbeddedResource Include="Views\CustomControls\StaffListControl.resx">
       <DependentUpon>StaffListControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\CustomControls\WorkTrackingContainerControl.resx">
-      <DependentUpon>WorkTrackingContainerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\CustomControls\WorkTrackingTopControl.resx">
-      <DependentUpon>WorkTrackingTopControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\CustomControls\WorkTrackingBottomControl.resx">
-      <DependentUpon>WorkTrackingBottomControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\ItemManagerView.resx">
       <DependentUpon>ItemManagerView.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,8 +224,11 @@
     <EmbeddedResource Include="Views\DetailViews\UserManager.resx">
       <DependentUpon>UserManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\DetailViews\WorkTrackingView.resx">
-      <DependentUpon>WorkTrackingView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\DetailViews\WorkTrackingAdmin.resx">
+      <DependentUpon>WorkTrackingAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\WorkTrackingAdmin_old.resx">
+      <DependentUpon>WorkTrackingAdmin_old.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
