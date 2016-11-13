@@ -6,6 +6,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using CoffeeManagement.DTOs;
+using CoffeeManagement.Views.CustomControls;
 
 namespace CoffeeManagement.Views
 {
@@ -95,7 +96,8 @@ namespace CoffeeManagement.Views
 				case "_menuSaleManager":
 					ShowDetailView(new OrderView());
 					break;
-				case "_menuWorkTracking":
+				case "_menuWorkTracking": // Theo doi cong viec
+                    ShowDetailView(new WorkTrackingContainerControl());
 					break;
 				case "_menuSaleStatistics":
 					// admin: thong ke ban hang

@@ -96,6 +96,24 @@
     <Compile Include="Views\CustomControls\SearchBox.Designer.cs">
       <DependentUpon>SearchBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingContainerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingContainerControl.designer.cs">
+      <DependentUpon>WorkTrackingContainerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingTopControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingTopControl.designer.cs">
+      <DependentUpon>WorkTrackingTopControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingBottomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CustomControls\WorkTrackingBottomControl.designer.cs">
+      <DependentUpon>WorkTrackingBottomControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailViews\IDetailView.cs" />
     <Compile Include="Views\DetailViews\ItemManagerView.cs">
       <SubType>UserControl</SubType>
@@ -190,6 +208,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomControls\SearchBox.resx">
       <DependentUpon>SearchBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingContainerControl.resx">
+      <DependentUpon>WorkTrackingContainerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingTopControl.resx">
+      <DependentUpon>WorkTrackingTopControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomControls\WorkTrackingBottomControl.resx">
+      <DependentUpon>WorkTrackingBottomControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\ItemManagerView.resx">
       <DependentUpon>ItemManagerView.cs</DependentUpon>
