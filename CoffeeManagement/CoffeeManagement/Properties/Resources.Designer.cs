@@ -486,6 +486,24 @@ namespace CoffeeManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quản lí chấm công.
+        /// </summary>
+        internal static string TitleWorkTrackingAdmin {
+            get {
+                return ResourceManager.GetString("TitleWorkTrackingAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chấm công.
+        /// </summary>
+        internal static string TitleWorkTrackingWorker {
+            get {
+                return ResourceManager.GetString("TitleWorkTrackingWorker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Đơn vị tính.
         /// </summary>
         internal static string UnitName {

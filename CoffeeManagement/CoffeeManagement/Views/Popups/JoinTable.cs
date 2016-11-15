@@ -40,6 +40,8 @@ namespace CoffeeManagement.Views.Popups
 			// Danh sách bàn có thể ghép
 			// TODO: bỏ bàn chứa trong bill hiện tại
 			_cbNewTable.DataSource = _occupiedTables.Select(t => t.Name).ToList();
+
+            this._btnOk.Enabled = false;
 		}
 
 		private void cancelBtn_Click(object sender, EventArgs e)

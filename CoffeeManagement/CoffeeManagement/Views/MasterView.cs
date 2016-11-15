@@ -97,7 +97,16 @@ namespace CoffeeManagement.Views
 					ShowDetailView(new OrderView());
 					break;
 				case "_menuWorkTracking": // Theo doi cong viec
-                    ShowDetailView(new WorkTrackingContainerControl());
+                    if (_currentUser.Level == AppEnum.UserLevel.Admin)
+                    {
+                        ShowDetailView(new WorkTrackingAdmin());
+                    }
+                    else
+                    {
+                        ShowDetailView(new WorkTrackingWorker());
+                    }
+
+                    
 					break;
 				case "_menuSaleStatistics":
 					// admin: thong ke ban hang
