@@ -60,6 +60,9 @@
   <ItemGroup>
     <Compile Include="BO\BillBo.cs" />
     <Compile Include="BO\ItemBo.cs" />
+    <Compile Include="BO\List.cs" />
+    <Compile Include="BO\ShiftBo.cs" />
+    <Compile Include="DAO\ShiftDao.cs" />
     <Compile Include="BO\TableBo.cs" />
     <Compile Include="BO\UnitBo.cs" />
     <Compile Include="BO\UserBo.cs" />
@@ -138,6 +141,18 @@
     </Compile>
     <Compile Include="Views\DetailViews\UserManager.Designer.cs">
       <DependentUpon>UserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingAdmin.Designer.cs">
+      <DependentUpon>WorkTrackingAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingNonAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailViews\WorkTrackingNonAdmin.Designer.cs">
+      <DependentUpon>WorkTrackingNonAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -229,6 +244,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DetailViews\UserManager.resx">
       <DependentUpon>UserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\WorkTrackingAdmin.resx">
+      <DependentUpon>WorkTrackingAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailViews\WorkTrackingNonAdmin.resx">
+      <DependentUpon>WorkTrackingNonAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

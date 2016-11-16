@@ -91,10 +91,10 @@ namespace CoffeeManagement.Views.DetailViews
 
 		private void OnSearchContentChanged(object sender, System.EventArgs e)
 		{
-			var items =
-				_items.Where(i => i.Name.ToLowerVietnameseNoTones().Contains(_sbSearchItems.SearchContent.ToLowerVietnameseNoTones()))
+			_items =
+				_itemBo.GetAll().Where(i => i.Name.ToLowerVietnameseNoTones().Contains(_sbSearchItems.SearchContent.ToLowerVietnameseNoTones()))
 					.ToList();
-			UpdateItemDataGridView(items);
+			UpdateItemDataGridView(_items);
 		}
 		#endregion
 
@@ -307,8 +307,12 @@ namespace CoffeeManagement.Views.DetailViews
 		{
 			base.OnHandleDestroyed(e);
 			JsonHelper.SaveTemptBills(_temptBills);
+			SaveBills();
 		}
 
+		public void SaveBills() {
+			JsonHelper.SaveTemptBills(_temptBills);
+		}
 		protected override void OnHandleCreated(EventArgs e)
 		{
 			base.OnHandleCreated(e);
@@ -334,5 +338,6 @@ namespace CoffeeManagement.Views.DetailViews
 				}
 			}
 		}
+
 	}
 }

@@ -26,5 +26,6 @@ namespace CoffeeManagement.DTOs
 		public bool IsDeleted { get; set; }
 
 		public virtual ICollection<Bill> Bills { get; set; }
+		public virtual ICollection<Shift> Shifts { get; set; }
 	}
 }

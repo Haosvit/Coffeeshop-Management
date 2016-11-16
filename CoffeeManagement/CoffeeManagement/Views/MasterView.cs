@@ -97,7 +97,15 @@ namespace CoffeeManagement.Views
 					ShowDetailView(new OrderView());
 					break;
 				case "_menuWorkTracking": // Theo doi cong viec
-                    ShowDetailView(new WorkTrackingContainerControl());
+					if (_currentUser.Level == AppEnum.UserLevel.Admin)
+					{
+						ShowDetailView(new WorkTrackingAdmin());
+					}
+					else
+					{
+						ShowDetailView(new WorkTrackingNonAdmin());
+					}
+					
 					break;
 				case "_menuSaleStatistics":
 					// admin: thong ke ban hang
@@ -122,6 +130,12 @@ namespace CoffeeManagement.Views
 			if (!_pMain.Controls.Contains(view))
 			{
 				view.Dock = DockStyle.Fill;
+
+				if (_pMain.Controls.Count > 0 && _pMain.Controls[0] is OrderView)
+				{
+					(_pMain.Controls[0] as OrderView).SaveBills();
+				}
+				
 				_pMain.Controls.Clear();
 				_pMain.Controls.Add(view);
 				if (view is IDetailView)

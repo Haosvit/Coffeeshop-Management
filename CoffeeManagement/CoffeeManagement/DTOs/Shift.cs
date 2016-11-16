@@ -14,7 +14,10 @@ namespace CoffeeManagement.DTOs
 		public bool DidWorkShift2 { get; set; }
 		public bool DidWorkShift3 { get; set; }
 		public DateTime Date { get; set; }
-		public User User { get; set; }
+
+		public int UserId { get; set; }
+		[ForeignKey("UserId")]
+		public virtual User User { get; set; }
 		public string Note { get; set; }
 	}
 }
