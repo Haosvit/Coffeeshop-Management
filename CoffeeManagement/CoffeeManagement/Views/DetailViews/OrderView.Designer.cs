@@ -276,6 +276,7 @@
 			this._gvOrder.Size = new System.Drawing.Size(439, 430);
 			this._gvOrder.TabIndex = 8;
 			this._gvOrder.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._gvOrder_CellContentDoubleClick);
+			this._gvOrder.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._gvOrder_CellContentDoubleClick);
 			// 
 			// _lbTableNames
 			// 
